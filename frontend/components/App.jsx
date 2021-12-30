@@ -7,10 +7,10 @@ const App = () => (
   <div>
     <header>
         <h1>SoundWave</h1>
-        
+        <GreetingContainer />
     </header>
 
-    <AuthRoute exact path="/" component={SplashContainer} />
+    {/* <AuthRoute exact path="/" component={GreetingContainer} /> */}
     
   </div>
 );

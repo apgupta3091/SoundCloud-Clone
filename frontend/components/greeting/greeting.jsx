@@ -1,6 +1,8 @@
 import React from "react";
 import LoginContainer from '../session/login_container'
 import SignupContainer from '../session/signup_container';
+import MainContainer from '../main/main_container';
+import Footer from '../footer/footer';
 
 class Greeting extends React.Component {
     constructor(props){
@@ -31,6 +33,7 @@ class Greeting extends React.Component {
             <div>
                 <p>Hello, {this.props.currentUser.username}</p>
                 <button onClick={this.props.logout}>Log Out</button>
+                <Footer />
             </div>
             ) : (
             <div>
@@ -41,7 +44,9 @@ class Greeting extends React.Component {
                 </div>
                 <div className="signup-modal hidden">
                     <SignupContainer />
-                </div>               
+                </div> 
+                <MainContainer />
+                <Footer />              
             </div>
             )
         )
