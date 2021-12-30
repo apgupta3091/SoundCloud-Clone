@@ -6,6 +6,22 @@ class Greeting extends React.Component {
     constructor(props){
         super(props)
         this.display = this.display.bind(this);
+        this.openSigninModal = this.openSigninModal.bind(this);
+        this.openSignupModal = this.openSignupModal.bind(this);
+    };
+
+    openSigninModal() {
+        let loginModal = document.querySelector('.login-modal');
+        let signupModal = document.querySelector('.signup-modal');
+        loginModal.classList.remove('hidden');
+        signupModal.classList.add('hidden');
+    };
+
+    openSignupModal() {
+        let loginModal = document.querySelector('.login-modal');
+        let signupModal = document.querySelector('.signup-modal');
+        signupModal.classList.remove('hidden');
+        loginModal.classList.add('hidden');
     };
 
     display() {
@@ -18,12 +34,12 @@ class Greeting extends React.Component {
             </div>
             ) : (
             <div>
-                <button>Sign in</button>
-                <button>Create account</button>
-                <div>
+                <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
+                <button id='sign-up' onClick={this.openSignupModal}>Create account</button>
+                <div className="login-modal hidden">
                     <LoginContainer />
                 </div>
-                <div>
+                <div className="signup-modal hidden">
                     <SignupContainer />
                 </div>               
             </div>

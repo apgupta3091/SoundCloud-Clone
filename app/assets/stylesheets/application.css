@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ .login-modal{
+     display: block;
+ }
+
+ .signup-modal{
+     display: block;
+ }
+
+ .hidden {
+    display:none;
+ }
