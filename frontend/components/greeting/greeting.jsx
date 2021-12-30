@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import LoginContainer from '../session/login_container'
+import SignupContainer from '../session/signup_container';
 
 class Greeting extends React.Component {
     constructor(props){
@@ -17,8 +18,14 @@ class Greeting extends React.Component {
             </div>
             ) : (
             <div>
-                <Link to='/signup'>Sign Up</Link>
-                <Link to='/login'>Log In</Link>
+                <button>Sign in</button>
+                <button>Create account</button>
+                <div>
+                    <LoginContainer />
+                </div>
+                <div>
+                    <SignupContainer />
+                </div>               
             </div>
             )
         )

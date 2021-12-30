@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
     };
 
     link(){
-        return this.props.formType === 'signup' ? 'login' : 'signup';
+        return this.props.formType === 'Create account' ? 'Sign in' : 'Create account';
     };
 
       handleInput(type){
@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
             <div>
                 
                 <h2>{this.props.formType}</h2>
-                <Link to={`/${this.link()}`}>{this.link()}</Link>
+                
                 <ul>
                     {
                         this.props.errors.map((error, idx) => <p key={idx}>{error}</p>)
@@ -46,6 +46,7 @@ class SessionForm extends React.Component {
                             onChange={this.handleInput('email')}
                         ></input>
                     </label>
+                    <br></br>
                     <label>Username:
                         <input
                             type="text"
@@ -64,6 +65,7 @@ class SessionForm extends React.Component {
                     <br></br>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
+                <button>{this.link()}</button>
             </div>
         );
     };
