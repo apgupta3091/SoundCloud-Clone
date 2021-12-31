@@ -10,6 +10,9 @@ class SessionForm extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.openSignupModal = this.openSignupModal.bind(this);
+        this.openSigninModal = this.openSigninModal.bind(this);
+        this.toggleForm = this.toggleForm.bind(this);
     };
 
     handleSubmit(e){
@@ -26,6 +29,27 @@ class SessionForm extends React.Component {
         return (e) => this.setState({ [type]: e.target.value });
     };
 
+     openSigninModal() {
+        let loginModal = document.querySelector('.login-modal');
+        let signupModal = document.querySelector('.signup-modal');
+        loginModal.classList.remove('hidden');
+        signupModal.classList.add('hidden');
+    };
+
+    openSignupModal() {
+        let loginModal = document.querySelector('.login-modal');
+        let signupModal = document.querySelector('.signup-modal');
+        signupModal.classList.remove('hidden');
+        loginModal.classList.add('hidden');
+    };
+
+    toggleForm(){
+        if (this.props.formType === 'Create account') {
+            return this.openSigninModal();
+        } else {
+            return this.openSignupModal();
+        };
+    };
 
     render() {
         return (
@@ -65,7 +89,10 @@ class SessionForm extends React.Component {
                     <br></br>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
-                <button>{this.link()}</button>
+                {
+                    
+                }
+                <button onClick={this.toggleForm}>{this.link()}</button>
             </div>
         );
     };
