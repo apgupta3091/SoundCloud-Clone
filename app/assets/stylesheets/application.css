@@ -15,24 +15,28 @@
  */
 
  body{
-     margin: 0 7%;
-     margin-bottom: 0;
+     margin: 0;
+     font-family: 'Overpass';
+     margin-top:-12px;
  }
 
  html{
-     background:rgb(238, 235, 235);
+     background:rgb(231, 230, 230);
  }
 
  .main{
      background:white;
+     margin: 0 7%;
  }
 
  .logo{
      position: relative;
-     top: 15px;
-     left: 120px;
+     top: 20px;
+     left: 80px;
      color:white;
      font-size: 16px;
+     font-weight:700;
+     letter-spacing: 1px;
  }
 
  .login-modal{
@@ -50,7 +54,7 @@
  .main-img{
      width:100%;
      height:450px;
-     margin-top: -72px;
+     margin-top: -65px;
      border-top:5px solid #f50;
  }
 
@@ -58,13 +62,18 @@
 #sign-in{
     background-color: black;
     color: white;
-    border: 1px solid #fff;
+    border: 1px solid rgb(201, 198, 198);
     border-radius: 3px;
     padding:8px 15px 8px 15px;
     position:relative;
     top:-20px;
     left: 900px;
     cursor:pointer;
+    pointer-events: all;
+}
+
+#sign-in:hover {
+    border: 1px solid  #fff;
 }
 
 #sign-up{
@@ -77,6 +86,7 @@
     top:-20px;
     left: 910px;
     cursor:pointer;
+    pointer-events: all;
 }
 
 .main-container{
@@ -91,12 +101,14 @@
     border:1px solid #f50;
     border-radius: 3px;
     cursor:pointer;
+    pointer-events: all;
 }
 
 .main-p{
-    margin-top:25px;
+    font-family: 'Overpass';
+    margin-top:45px;
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 300;
     
 }
 
@@ -115,7 +127,7 @@
 footer {
     margin-top: 100px;
     text-align:center;
-    border-top: 1px solid rgb(240, 237, 237);
+    border-top: 1px solid rgb(209, 207, 207);
 
 }
 
@@ -132,3 +144,68 @@ footer a{
     cursor:pointer;
 }
 
+
+
+.modal {
+    position: fixed;
+    top: 30%;
+    left: 33%;
+    border: 1px solid white;
+    z-index: 10;
+    background-color: white;
+    width: 450px; 
+    height: auto;
+    max-width: 80%;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.modal input {
+    width: 80%;
+    height: 35px;
+    font-size:18px;
+    margin: 10px 0;
+    pointer-events: all;
+}
+
+.modal button {
+    width: 82%;
+    background-color:#f50;
+    color:white;
+    margin: 10px 0;
+    height: 35px;
+    border: 1px solid #f50;
+    font-size:16px;
+    margin-bottom: 30px;
+    pointer-events: all;
+}
+
+.form-type {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
+    font-size: 30px;
+}
+
+.overlay {
+    opacity:1;
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.384);
+    pointer-events: none;
+}
+
+.hide {
+    z-index: -10;
+    background-color:rgb(255, 253, 253);
+}
+
+.grey{
+    background-color: rgba(0, 0, 0, 0.384);
+
+}
+
+.logout-btn{
+    pointer-events: all;
+}

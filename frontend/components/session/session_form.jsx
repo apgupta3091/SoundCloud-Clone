@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 
-                <h2>{this.props.formType}</h2>
+                <h2 className="form-type">{this.props.formType}</h2>
                 
                 <ul>
                     {
@@ -63,36 +63,35 @@ class SessionForm extends React.Component {
                     }
                 </ul>
                 <form>
-                <label>Email:
+                <label>
                         <input
                             type="text"
                             value={this.state.email}
                             onChange={this.handleInput('email')}
+                            placeholder="Your Email address"
                         ></input>
                     </label>
-                    <br></br>
-                    <label>Username:
+                    <label>
                         <input
                             type="text"
                             value={this.state.username}
                             onChange={this.handleInput('username')}
+                            placeholder="Your Username"
                         ></input>
                     </label>
-                    <br></br>
-                    <label>Password:
+                    <label>
                         <input
                             type="password"
                             value={this.state.password}
                             onChange={this.handleInput('password')}
+                            placeholder="Your Password"
                         ></input>
                     </label>
-                    <br></br>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
                 {
                     
                 }
-                <button onClick={this.toggleForm}>{this.link()}</button>
             </div>
         );
     };
