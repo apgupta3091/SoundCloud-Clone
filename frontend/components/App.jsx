@@ -4,9 +4,9 @@ import SplashContainer from "./splash/splash_container";
 import { AuthRoute } from "../util/route_util";
 
 const App = () => (
-  <div>
+  <div className="main">
     <header>
-        <h1>SoundWave</h1>
+        <h1 className="logo">SOUNDWAVE</h1>
         <GreetingContainer />
     </header>
 

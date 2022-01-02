@@ -4,6 +4,7 @@ import SignupContainer from '../session/signup_container';
 import MainContainer from '../main/main_container';
 import Footer from '../footer/footer';
 
+
 class Greeting extends React.Component {
     constructor(props){
         super(props)
@@ -39,6 +40,8 @@ class Greeting extends React.Component {
             <div>
                 <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
                 <button id='sign-up' onClick={this.openSignupModal}>Create account</button>
+                <img className="main-img" src='/images/main-img.png' alt="logo" />
+                <h1 className="main-h1">What's next in music is first in SoundWave</h1>
                 <div className="login-modal hidden">
                     <LoginContainer />
                 </div>
