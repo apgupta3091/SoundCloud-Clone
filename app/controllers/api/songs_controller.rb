@@ -2,7 +2,7 @@ class Api::SongsController < ApplicationController
 
     def index 
         if params.has_key?(:user_id)
-            @songs = .includes(:artist).where('artist_id = ?', params[:user_id])
+            @songs = Song.includes(:artist).where('artist_id = ?', params[:user_id])
         else
             @songs = Song.all
         end
