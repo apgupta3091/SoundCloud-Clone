@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
     constructor(props){
@@ -12,17 +11,17 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.openSignupModal = this.openSignupModal.bind(this);
         this.openSigninModal = this.openSigninModal.bind(this);
-        this.toggleForm = this.toggleForm.bind(this);
+        this.loginGuest = this.loginGuest.bind(this);
     };
 
     handleSubmit(e){
         e.preventDefault();
         const user =  Object.assign({}, this.state);
         this.props.processForm(user);
-    };
-
-    link(){
-        return this.props.formType === 'Create account' ? 'Sign in' : 'Create account';
+        let body = document.querySelector('body');
+        let overlay = document.querySelector('.overlay');
+        overlay.classList.add('hide');
+        body.classList.remove('grey');
     };
 
       handleInput(type){
@@ -43,21 +42,29 @@ class SessionForm extends React.Component {
         loginModal.classList.add('hidden');
     };
 
-    toggleForm(){
-        if (this.props.formType === 'Create account') {
-            return this.openSigninModal();
-        } else {
-            return this.openSignupModal();
+     loginGuest() {
+        const guest = {
+            email: 'guest@gmail.com',
+            username: 'guest',
+            password: '123456'
         };
+        
+        this.props.loginGuest(guest);
+        let body = document.querySelector('body');
+        let overlay = document.querySelector('.overlay');
+        overlay.classList.add('hide');
+        body.classList.remove('grey');
     };
+    
 
     render() {
         return (
             <div>
-                
                 <h2 className="form-type">{this.props.formType}</h2>
+
+                <button className="guest-btn" onClick={this.loginGuest}>Login as a Guest</button>
                 
-                <ul>
+                <ul className="errors-spash-form">
                     {
                         this.props.errors.map((error, idx) => <p key={idx}>{error}</p>)
                     }
@@ -89,9 +96,7 @@ class SessionForm extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
-                {
-                    
-                }
+                
             </div>
         );
     };

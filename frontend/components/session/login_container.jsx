@@ -10,6 +10,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch, ownProps) => ({
     processForm: formUser => dispatch(login(formUser)),
+    loginGuest: guest => dispatch(login(guest)),
    
 });
 
