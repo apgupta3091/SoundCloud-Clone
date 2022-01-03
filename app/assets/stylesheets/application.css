@@ -230,3 +230,41 @@ footer a {
     pointer-events: all;
     display: inline-block;
 }
+
+.song-cover-photo {
+    height: 175px;
+    width: 175px;
+    
+}
+
+.songs-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
+    padding-left:0;
+}
+
+.songs-list li{
+    list-style: none;
+    margin: 0 12px;
+
+}
+
+.song-title{
+    font-size:14px;
+    margin-top: -5px;
+    margin-left:12px;
+    text-align: left;
+    color:#333;
+    font-weight:300;
+}
+
+.song-artist {
+    font-size:14px;
+    margin-top: -16px;
+    margin-left:12px;
+    text-align: left;
+    color:rgb(102, 101, 101);
+    font-weight:100;
+}

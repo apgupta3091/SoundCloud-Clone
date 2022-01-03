@@ -1,4 +1,4 @@
-json.extract! songs, :id, :title, :genre 
+json.extract! song, :id, :title, :genre 
 
 
 

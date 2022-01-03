@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import Main from './main';
+import { fetchSongs } from '../../../actions/song_actions'
 
-// const mSTP = (state, ownProps) => ({
-//     errors: state.errors.session,
-// });
+const mSTP = (state, ownProps) => ({
+    songs: state.entities.songs
+});
 
-// const mDTP = (dispatch, ownProps) => ({
-//     processForm: formUser => dispatch(login(formUser))
-// });
+const mDTP = (dispatch, ownProps) => ({
+    fetchSongs: () => dispatch(fetchSongs())
+});
 
-export default connect(null, null)(Main);
+export default connect(mSTP, mDTP)(Main);

@@ -7,6 +7,10 @@ class Main extends React.Component {
         this.openSigninModal = this.openSigninModal.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchSongs();
+    };
+
      openSigninModal(){
             let loginModal = document.querySelector('.login-modal');
             let signupModal = document.querySelector('.signup-modal');
@@ -20,12 +24,33 @@ class Main extends React.Component {
 
     
     render(){
-
-    
+        const { songs } =  this.props;
+        const splashSongs =[];
+        const allSongs = Object.values(songs);
+        for (let i = 0; i < 12; i++){
+            splashSongs.push(allSongs[i]);
+        };
         return (
             <div className="main-container">
                 <button className="main-btn" onClick={this.openSigninModal}>UPLOAD YOUR OWN</button>
                 <p className="main-p">Hear what's trending now for free in the SoundWave community</p>
+                <div>
+                    <ul className="songs-list">
+                        {
+                            splashSongs.map(song => (
+                                song ?
+                                (<span key={song.id}>
+                                    <li>
+                                        <img className="song-cover-photo" src={song.coverPhoto}></img>
+                                    </li>
+                                    <p className="song-title">{song.title}</p>
+                                    <p className="song-artist">{song.uploader.username}</p>
+
+                                </span>): null
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         );
     }   
