@@ -63,7 +63,7 @@ class Greeting extends React.Component {
                 <span className="top-border"></span>
                 <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
                 <button id='sign-up' onClick={this.openSignupModal}>Create account</button>
-                <img className="main-img" src='/images/main-img.png' alt="logo" />
+                <img className="main-img" src={window.mainURL} alt="logo" />
                 <h1 className="main-h1">What's next in music is first in SoundWave</h1>
                 <div className="modal login-modal hidden">
                     <LoginContainer />
