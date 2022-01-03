@@ -3,6 +3,7 @@ import LoginContainer from '../../session/login_container'
 import SignupContainer from '../../session/signup_container';
 import MainContainer from '../main/main_container';
 import Footer from '../../footer/footer';
+import { $CombinedState } from "redux";
 
 
 class Greeting extends React.Component {
@@ -11,8 +12,8 @@ class Greeting extends React.Component {
         this.display = this.display.bind(this);
         this.openSigninModal = this.openSigninModal.bind(this);
         this.openSignupModal = this.openSignupModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
     };
+
 
     openSigninModal() {
         let loginModal = document.querySelector('.login-modal');
@@ -36,17 +37,6 @@ class Greeting extends React.Component {
         body.classList.add('grey');
     };
 
-    closeModal() {
-        let loginModal = document.querySelector('.login-modal');
-        let signupModal = document.querySelector('.signup-modal');
-        let overlay = document.querySelector('.overlay');
-        if (!loginModal.classlist.contains('hidden') || (!signupModal.classlist.contains('hidden'))){
-          loginModal.classList.add('hidden');
-          signupModal.classList.add('hidden');
-          overlay.classList.add('hide');
-        };
-    };
-
 
 
     display() {
@@ -59,16 +49,16 @@ class Greeting extends React.Component {
                 <Footer />
             </div>
             ) : (
-            <div className="top" onClick={this.closeModal}>
+            <div className="top" >
                 <span className="top-border"></span>
                 <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
                 <button id='sign-up' onClick={this.openSignupModal}>Create account</button>
                 <img className="main-img" src={window.mainURL} alt="logo" />
                 <h1 className="main-h1">What's next in music is first in SoundWave</h1>
-                <div className="modal login-modal hidden">
+                <div className="modal login-modal hidden" id="login-modal">
                     <LoginContainer />
                 </div>
-                <div className="modal signup-modal hidden">
+                <div className="modal signup-modal hidden" id="signup-modal">
                     <SignupContainer />
                 </div> 
                 <MainContainer />

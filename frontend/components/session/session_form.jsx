@@ -56,12 +56,24 @@ class SessionForm extends React.Component {
         body.classList.remove('grey');
     };
     
+    closeModal() {
+        const loginModal = document.getElementById('login-modal');
+        const signupModal = document.getElementById('signup-modal');
+        let overlay = document.querySelector('.overlay');
+        let body = document.querySelector('body');
+        if ($("#login-modal").hasClass('hidden') || ($("#signup-modal").hasClass("hidden"))){
+            loginModal.classList.add('hidden');
+            signupModal.classList.add('hidden');
+            overlay.classList.add('hide');
+            body.classList.remove('grey');
+        };
+    };
 
     render() {
         return (
             <div>
                 <h2 className="form-type">{this.props.formType}</h2>
-
+                <p className="x-btn" onClick={this.closeModal}>&#88;</p>
                 <button className="guest-btn" onClick={this.loginGuest}>Login as a Guest</button>
                 
                 <ul className="errors-spash-form">

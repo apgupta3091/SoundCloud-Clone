@@ -134,10 +134,6 @@ footer {
 
 }
 
-footer a{
-    text-decoration: none;
-}
-
 .icon-links{
     height:50px;
     width:50px;
@@ -154,7 +150,7 @@ footer a{
     top: 30%;
     left: 33%;
     border: 1px solid white;
-    z-index: 10;
+    z-index: 200;
     background-color: white;
     width: 450px; 
     height: auto;
@@ -181,7 +177,6 @@ footer a{
     width: 82%;
     background-color:#f50;
     color:white;
-    margin: 10px 0;
     height: 35px;
     border: 1px solid #f50;
     font-size:16px;
@@ -197,13 +192,12 @@ footer a{
 }
 
 .overlay {
-    opacity:1;
+    z-index:100;
     top: 0;
     left: 0; 
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.384);
-    pointer-events: none;
 }
 
 .hide {
@@ -223,4 +217,16 @@ footer a{
 footer a {
     pointer-events: all;
     cursor: pointer;
+    text-decoration: none;
+
+}
+
+.x-btn{
+    position: relative;
+    bottom: 120px;
+    left: 390px;
+    font-size: 25px;
+    cursor: pointer;
+    pointer-events: all;
+    display: inline-block;
 }
