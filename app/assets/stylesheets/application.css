@@ -126,11 +126,11 @@
 }
 
 footer {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align:center;
     border-top: 1px solid rgb(209, 207, 207);
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 
 }
 
@@ -243,6 +243,7 @@ footer a {
     justify-content: center;
     margin-left: 0;
     padding-left:0;
+    margin-top: 60px;
 }
 
 .songs-list li{
