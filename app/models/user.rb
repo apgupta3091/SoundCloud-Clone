@@ -12,7 +12,7 @@ class User < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Song 
 
-    # has_many :comments
+
 
     has_one_attached :profile_pic
 

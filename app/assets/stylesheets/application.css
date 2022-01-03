@@ -220,3 +220,7 @@ footer a{
     pointer-events: all;
 }
 
+footer a {
+    pointer-events: all;
+    cursor: pointer;
+}
