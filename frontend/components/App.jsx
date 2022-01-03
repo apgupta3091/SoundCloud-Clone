@@ -1,6 +1,5 @@
 import React from "react";
-import GreetingContainer from './greeting/greeting_container';
-import SplashContainer from "./splash/splash_container";
+import GreetingContainer from './splash/greeting/greeting_container';
 import { AuthRoute } from "../util/route_util";
 
 

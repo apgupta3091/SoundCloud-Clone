@@ -1,8 +1,8 @@
 import React from "react";
-import LoginContainer from '../session/login_container'
-import SignupContainer from '../session/signup_container';
+import LoginContainer from '../../session/login_container'
+import SignupContainer from '../../session/signup_container';
 import MainContainer from '../main/main_container';
-import Footer from '../footer/footer';
+import Footer from '../../footer/footer';
 
 
 class Greeting extends React.Component {

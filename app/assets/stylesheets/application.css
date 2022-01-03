@@ -56,6 +56,7 @@
      height:450px;
      margin-top: -65px;
      border-top:5px solid #f50;
+     padding-top:0;
  }
 
 
@@ -128,6 +129,8 @@ footer {
     margin-top: 100px;
     text-align:center;
     border-top: 1px solid rgb(209, 207, 207);
+    padding-top: 30px;
+    padding-bottom: 30px;
 
 }
 
