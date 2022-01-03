@@ -29,7 +29,7 @@ class Api::SongsController < ApplicationController
         @song = Song.find_by(id: params[:id])
 
         if @song.update(song_params)
-            render: show 
+            render :show 
         else
             render json: @songs.errors.full_messages, status: 422 
         end
