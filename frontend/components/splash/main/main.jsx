@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class Main extends React.Component {
     constructor(props){
@@ -24,9 +24,8 @@ class Main extends React.Component {
 
     
     render(){
-        const { songs } =  this.props;
+        const { songs, allSongs } =  this.props;
         const splashSongs =[];
-        const allSongs = Object.values(songs);
         for (let i = 0; i < 12; i++){
             splashSongs.push(allSongs[i]);
         };
@@ -40,11 +39,13 @@ class Main extends React.Component {
                             splashSongs.map(song => (
                                 song ?
                                 (<span key={song.id}>
-                                    <li>
-                                        <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                    </li>
-                                    <p className="song-title">{song.title}</p>
-                                    <p className="song-artist">{song.uploader.username}</p>
+                                    <Link to={`/songs/${song.id}`}>
+                                        <li>
+                                            <img className="song-cover-photo" src={song.coverPhoto}></img>
+                                        </li>
+                                        <p className="song-title">{song.title}</p>
+                                        <p className="song-artist">{song.uploader.username}</p>
+                                    </Link>
 
                                 </span>): null
                             ))

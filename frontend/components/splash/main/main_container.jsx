@@ -4,7 +4,8 @@ import Main from './main';
 import { fetchSongs } from '../../../actions/song_actions'
 
 const mSTP = (state, ownProps) => ({
-    songs: state.entities.songs
+    songs: state.entities.songs,
+    allSongs: Object.values(state.entities.songs)
 });
 
 const mDTP = (dispatch, ownProps) => ({

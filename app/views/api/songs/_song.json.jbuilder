@@ -1,4 +1,5 @@
 json.extract! song, :id, :title, :genre 
+json.createdAt time_ago_in_words(song.created_at)
 
 
 
