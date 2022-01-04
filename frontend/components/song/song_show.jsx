@@ -14,14 +14,27 @@ class SongShow extends React.Component {
     
     render() {
          return (
-            <div className="main">
+            <div>
                 <NavBarContainer /> 
+                <div className="show-context">
+                    <h1>hello</h1>
+                    <div className="song-show-content-title-uploader">
+                        <h1 className="song-show-title">{this.state.title}</h1>
+                        <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
+                    </div>
+                    <div className="song-show-content-genre-date">
+                        <p className="song-show-uploader">{this.state.uploader.username}</p>
+                        <p className="song-show-genre">#{this.state.genre}</p>
+                    </div>
+                    <img className="show-img" src={this.state.coverPhoto}></img> 
+                </div>
                 <h1>hello</h1>
-                <h1>{this.state.title}</h1>
-                <p>{this.state.uploader.username}</p>
-                <p>{this.state.genre}</p>
-                <p>{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
-                <img className="show-img" src={this.state.coverPhoto}></img> 
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
             </div>
         );
     };

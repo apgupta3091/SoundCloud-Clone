@@ -7,6 +7,7 @@
     left:0px;
     display: flex;
     align-items: center;
+    z-index: 100;
     
 }
  .nav-logo{
@@ -24,8 +25,8 @@
     color:lightgray;
     text-decoration: none;
     margin-left:102px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid rgb(27, 27, 27);
+    border-right: 1px solid rgb(27, 27, 27);
     padding:15px 30px;    
 }
 
@@ -40,5 +41,5 @@
 }
 
 #upload-link{
-    border-right: 2px solid black;
+    border-right: 2px solid rgb(27, 27, 27);
 }
