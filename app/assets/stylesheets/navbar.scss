@@ -1,0 +1,44 @@
+.navbar {
+    position: fixed;
+    top:0;
+    background-color: #333;
+    width:1500px;
+    height: 50px;
+    left:0px;
+    display: flex;
+    align-items: center;
+    
+}
+ .nav-logo{
+     position: relative;
+     top: 0;
+     left: 101px;
+     color:white;
+     font-size: 16px;
+     font-weight:700;
+     letter-spacing: 1px;
+     background-color: #f50;
+     padding: 15px 40px;
+ }
+.nav-link{
+    color:lightgray;
+    text-decoration: none;
+    margin-left:102px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding:15px 30px;    
+}
+
+.nav-link:hover{
+    color:white;
+}
+
+#signin-link,
+#signup-link,
+#upload-link {
+    margin-left:0;
+}
+
+#upload-link{
+    border-right: 2px solid black;
+}

@@ -50,8 +50,8 @@ class Greeting extends React.Component {
             </div>
             ) : (
             <div className="top" >
-                <span className="top-border"></span>
-                <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
+                <h1 className="logo">SOUNDWAVE</h1>
+]                <button id="sign-in" onClick={this.openSigninModal}>Sign in</button>
                 <button id='sign-up' onClick={this.openSignupModal}>Create account</button>
                 <img className="main-img" src={window.mainURL} alt="logo" />
                 <h1 className="main-h1">What's next in music is first in SoundWave</h1>

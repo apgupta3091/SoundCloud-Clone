@@ -39,7 +39,7 @@ class Main extends React.Component {
                             splashSongs.map(song => (
                                 song ?
                                 (<span key={song.id}>
-                                    <Link to={`/songs/${song.id}`}>
+                                    <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
                                         </li>

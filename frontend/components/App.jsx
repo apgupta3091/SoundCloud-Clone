@@ -11,10 +11,10 @@ import DiscoverContainer from './discover/discover_container';
 const App = () => (
   <div className="main overlay hide">
     <header>
-        <h1 className="logo">SOUNDWAVE</h1>
+        
     </header>
 
-    <AuthRoute exact path="/" component={GreetingContainer} />
+    <Route exact path="/" component={GreetingContainer} />
     <Route path={`/songs/:songId`} component={SongShowContainer}></Route>
     
   </div>

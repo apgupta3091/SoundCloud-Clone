@@ -5,7 +5,8 @@ import { logout } from '../../actions/session_actions';
 import { fetchSong } from '../../actions/song_actions';
 
 const mSTP = (state, ownProps) => ({
-    song: state.entities.songs[ownProps.match.params.songId]
+    song: state.entities.songs[ownProps.match.params.songId],
+    songId: ownProps.match.params.songId,
 });
 
 const mDTP = dispatch => ({
