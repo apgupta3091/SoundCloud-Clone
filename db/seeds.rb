@@ -14,6 +14,7 @@ user3 = User.create!( email:"DV.com", username:'Darth Vader', password: 'passwor
 user4 = User.create!( email:"Demon.com", username:'Demons', password: 'password')
 user5 = User.create!( email:"BB.com", username:'Bikini Bottom', password: 'password')
 user6 = User.create!( email:"DA.com", username:'DJ Alvin', password: 'password')
+user7 = User.create!( email:"guest@gmail.com", username:'guest', password: '123456')
 
 
 
