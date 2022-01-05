@@ -27,7 +27,9 @@ export const createSong = song => (
     $.ajax({
         method: 'POST',
         url: '/api/songs',
-        data: {song: song}
+        data: song,
+        contentType: false,
+        processData: false
     })
 );
 
@@ -35,7 +37,7 @@ export const updateSong = song => (
     $.ajax({
         method: 'PATCH',
         url: `/api/songs/${song.get(['song[id]'])}`,
-        data: {song: song},
+        data: song,
         contentType: false,
         processData: false
     })

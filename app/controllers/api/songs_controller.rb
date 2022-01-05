@@ -11,13 +11,13 @@ class Api::SongsController < ApplicationController
     end
 
     def create
+        debugger
         @song = Song.new(song_params)
         @song.artist_id = current_user.id 
-        debugger
         if @song.save
             render :show 
         else
-            render json: @songs.errors.full_messages, status: 422
+            render json: @song.errors.full_messages, status: 422
         end
     end
 
@@ -27,7 +27,7 @@ class Api::SongsController < ApplicationController
         if @song.update(song_params)
             render :show 
         else
-            render json: @songs.errors.full_messages, status: 422 
+            render json: @song.errors.full_messages, status: 422 
         end
     end
 

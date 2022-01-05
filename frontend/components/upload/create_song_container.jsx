@@ -11,9 +11,6 @@ const mSTP =  state => ({
     song: {
         title:'',
         artist_id: state.session.id,
-        cover_photo:null,
-        song_file:null,
-        genre: 'edm'
     },
 });
 
