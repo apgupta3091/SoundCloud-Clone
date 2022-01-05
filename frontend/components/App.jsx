@@ -1,6 +1,6 @@
 import React from "react";
 import GreetingContainer from './splash/greeting/greeting_container';
-import { AuthRoute } from "../util/route_util";
+import { AuthRoute, LogRoute } from "../util/route_util";
 import { Route } from 'react-router';
 import SongShowContainer from './song/song_show_container';
 import DiscoverContainer from './discover/discover_container';
@@ -14,8 +14,9 @@ const App = () => (
         
     </header>
 
-    <Route exact path="/" component={GreetingContainer} />
-    <Route path={`/songs/:songId`} component={SongShowContainer}></Route>
+    <AuthRoute exact path="/" component={GreetingContainer} />
+    <Route path={`/songs/:songId`} component={SongShowContainer} />
+    <LogRoute exact path='/discover' component={DiscoverContainer} />
     
   </div>
 );

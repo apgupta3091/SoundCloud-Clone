@@ -56,3 +56,22 @@
 .song-show-date{
     color: white;
 }
+
+.song-show-play{
+    height:30px;
+    width: 30px;
+    position: absolute;
+    top: 95px;
+    z-index:100;
+    color:white;
+    left:130px;
+    padding:15px;
+    border:0;
+    background-color: #f50;
+    border-radius: 50%;
+}
+
+.song-show-play:hover{
+    background-color: rgb(255, 51, 0);
+    cursor: pointer;
+}

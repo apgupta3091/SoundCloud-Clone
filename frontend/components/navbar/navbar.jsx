@@ -11,11 +11,12 @@ class NavBar extends React.Component {
         return(
 
             this.props.currentUser ? (
-            <nav className="navbar-currentuser">
-                <Link to='/'>Home</Link>
-                <Link to='/'>Sign in</Link>
-                <Link to='/'>Create account</Link>
-                
+            <nav className="navbar">
+                <h1 className="nav-logo">SOUNDWAVE</h1>
+                <Link className="nav-link home" to='/discover'>Home</Link>
+                <Link className="nav-link" id="signin-link" to='/'>Upload</Link>
+                <Link className="nav-link" id='signup-link' to='/'>{this.props.currentUser.username}</Link>
+                <Link className="nav-link" id='upload-link' onClick={this.props.logout}>Log Out</Link>
 
             </nav>
             ) : (

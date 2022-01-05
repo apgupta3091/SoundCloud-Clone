@@ -1,15 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import Discover from './discover';
-import { fetchSong } from '../../actions/song_actions'
+import { fetchSongs } from '../../actions/song_actions';
+import { logout } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => ({
-    song: state.entities.songs[ownProps.match.params.songId],
+    songs: Object.values(state.entities.songs),
     currentUser: state.entities.users[state.session.id],
 });
 
 const mDTP = dispatch => ({
-    fetchSong: songId => dispatch(fetchSong(songId))
+    fetchSongs: () => dispatch(fetchSongs()),
+    logout: () => dispatch(logout())
 });
 
 export default connect(mSTP, mDTP)(Discover);

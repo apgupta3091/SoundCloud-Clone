@@ -1,13 +1,16 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 class SongShow extends React.Component {
     componentDidMount() {
-        this.props.fetchSong(this.props.song.id)
+        this.props.fetchSong(this.props.song.id);
+        window.scrollTo(0, 0);
     }
     constructor(props){
         super(props);
-        this.state = this.props.song 
+        this.state = this.props.song;
     };
 
     
@@ -18,6 +21,7 @@ class SongShow extends React.Component {
                 <NavBarContainer /> 
                 <div className="show-context">
                     <h1>hello</h1>
+                    <FontAwesomeIcon className="song-show-play" icon={faPlay}></FontAwesomeIcon>
                     <div className="song-show-content-title-uploader">
                         <h1 className="song-show-title">{this.state.title}</h1>
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
@@ -29,12 +33,8 @@ class SongShow extends React.Component {
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
                 <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
+                
+                
             </div>
         );
     };
