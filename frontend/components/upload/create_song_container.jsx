@@ -2,15 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import SongForm from './song_form';
 import { createSong } from '../../actions/song_actions';
+import { clearSongErrors } from "../../actions/song_actions";
 
 const mSTP =  state => ({
     errors: state.errors.song,
-    formType: 'Create Song'
+    currentUser: state.entities.users[state.session.id],
+    formType: 'Create Song',
+    song: {
+        title:'',
+        artist_id: state.session.id,
+        cover_photo:null,
+        song_file:null,
+        genre: 'edm'
+    },
 });
 
 
 const mDTP = dispatch => ({
-    processForm: song => dispatch(createSong(song))
+    action: song => dispatch(createSong(song)),
+    clearSongErrors: () => dispatch(clearSongErrors())
 });
 
 

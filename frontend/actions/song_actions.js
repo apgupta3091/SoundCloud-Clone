@@ -45,8 +45,8 @@ export const fetchSong = songId => dispatch => {
 };
 
 export const createSong = song => dispatch => (
-    SongAPIUtil.createSong(song).then(song => dispatch(receiveSong(song)),
-        err => dispatch(receiveSongErrors(err.responseJSON)))
+    SongAPIUtil.createSong(song).then(song => dispatch(receiveSong(song)))
+        
 );
 
 export const updateSong = song => dispatch => (

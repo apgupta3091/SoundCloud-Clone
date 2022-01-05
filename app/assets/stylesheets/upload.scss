@@ -1,0 +1,34 @@
+.upload-song-form{
+    display: flex;
+    background-color: rgb(235, 230, 230);
+    width:50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:60px auto;
+    height: auto;
+    background-color: rgb(253, 102, 27);
+    color:white;
+}
+
+.upload-song-form label{
+    display: block;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:20px 0;
+    font-size: 18px;
+}
+
+.upload-song-form-form button{
+    margin-top:20px;
+    width:400px;
+    color:black;
+    cursor: pointer;
+}
+
+
+.upload-song-form-form{
+    margin-top:-30px;
+    margin-bottom: 50px;
+}

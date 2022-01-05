@@ -43,3 +43,19 @@
 #upload-link{
     border-right: 2px solid rgb(27, 27, 27);
 }
+
+.nav-log-out{
+    color:lightgray;
+    background-color: #333;
+    color:lightgray;
+    text-decoration: none;
+    margin-left:102px;
+    border-left: 1px solid rgb(27, 27, 27);
+    border-right: 1px solid rgb(27, 27, 27);
+    padding:15px 30px;
+    border-top: none;    
+}
+
+.nav-log-out:hover{
+    cursor: pointer;
+}
