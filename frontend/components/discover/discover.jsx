@@ -7,6 +7,10 @@ class Discover extends React.Component {
         super(props);
     };
 
+    componentDidMount(){
+        this.props.fetchSongs();
+    }
+
     render(){
         return(
             <div>

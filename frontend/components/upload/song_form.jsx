@@ -1,6 +1,7 @@
 import React from "react";
 import NavBarContainer from '../navbar/navbar_container';
 import Footer from '../footer/footer';
+import { Redirect } from "react-router-dom";
 
 class SongForm extends React.Component {
     constructor(props){
@@ -15,6 +16,8 @@ class SongForm extends React.Component {
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.handleSongFile = this.handleSongFile.bind(this);
         this.handleGenre=this.handleGenre.bind(this);
+        this.resetState = this.resetState.bind(this);
+        this.showCreatedSong = this.showCreatedSong.bind(this);
     };
 
     componentDidMount(){
@@ -57,9 +60,26 @@ class SongForm extends React.Component {
             formData.append('song[song_file]', this.state.songFile);
         };
 
-        this.props.action(formData);
+        this.props.action(formData).then(this.showCreatedSong()).then(this.resetState);
         this.props.clearSongErrors();
     };
+
+    showCreatedSong(){
+        return <Redirect to={`/songs/${this.state.id}`} />
+    };
+
+    resetState() {
+        if (this.props.formType === 'Create Song') {
+            this.setState({
+                title: '',
+                coverPhoto: null,
+                coverPhotoURL: null,
+                songFile: null,
+                genre: 'choose-genre'
+            });
+        };
+    };
+
 
     render(){
 
