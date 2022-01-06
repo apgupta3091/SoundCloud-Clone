@@ -1,23 +1,22 @@
 import React from "react";
 import NavBarContainer from '../navbar/navbar_container';
 import Footer from '../footer/footer';
-import { Redirect } from "react-router-dom";
+
 
 class SongForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             ...this.props.song,
-            coverPhoto: null, 
-            songFile: null, 
-            genre: 'choose-genre'
+            coverPhoto: this.props.song.coverPhoto || null, 
+            songFile: this.props.song.songFile || null, 
+            genre: this.props.song.genre || 'edm',
         }
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.handleSongFile = this.handleSongFile.bind(this);
         this.handleGenre=this.handleGenre.bind(this);
         this.resetState = this.resetState.bind(this);
-        this.showCreatedSong = this.showCreatedSong.bind(this);
     };
 
     componentDidMount(){
@@ -51,6 +50,7 @@ class SongForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const formData = new FormData();
+        formData.append('song[id]', this.state.id);
         formData.append('song[title]', this.state.title);
         formData.append('song[genre]', this.state.genre);
         if (this.state.coverPhoto) {
@@ -58,15 +58,14 @@ class SongForm extends React.Component {
         };
         if (this.state.songFile) {
             formData.append('song[song_file]', this.state.songFile);
-        };
+        };        
 
-        this.props.action(formData).then(this.showCreatedSong()).then(this.resetState);
+        this.props.action(formData).then(this.resetState);
+        this.props.history.push('/discover')
         this.props.clearSongErrors();
     };
 
-    showCreatedSong(){
-        return <Redirect to={`/songs/${this.state.id}`} />
-    };
+    
 
     resetState() {
         if (this.props.formType === 'Create Song') {
@@ -75,14 +74,13 @@ class SongForm extends React.Component {
                 coverPhoto: null,
                 coverPhotoURL: null,
                 songFile: null,
-                genre: 'choose-genre'
+                genre: 'edm'
             });
         };
     };
 
 
     render(){
-
         const { errors, formType } = this.props;
         return (
             <div>
@@ -106,8 +104,8 @@ class SongForm extends React.Component {
                             ></input>
                         </label>
                         <label>Genre
-                            <select value={this.state.genre} onChange={this.handleGenre}>
-                                <option value="choose genre" disabled>Select Genre</option>
+                            <select value={this.state.genre ? this.state.genre : 'select-genre'} onChange={this.handleGenre}>
+                                <option value="select genre" disabled>Select Genre</option>
                                 <option value='edm'>edm</option>
                                 <option value='hip-hop'>hip-hop</option>
                                 <option value='pop'>pop</option>

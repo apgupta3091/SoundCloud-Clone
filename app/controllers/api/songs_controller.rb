@@ -11,7 +11,7 @@ class Api::SongsController < ApplicationController
     end
 
     def create
-        @song = Song.new(song_params)
+        @song = Song.new(song_create_params)
         @song.artist_id = current_user.id 
         if @song.save
             render :show 
@@ -21,9 +21,8 @@ class Api::SongsController < ApplicationController
     end
 
     def update 
-        @song = Song.find_by(id: params[:id])
-
-        if @song.update(song_params)
+        @song = Song.find_by(id: params[:song][:id])
+        if @song.update(song_update_params)
             render :show 
         else
             render json: @song.errors.full_messages, status: 422 
@@ -38,7 +37,11 @@ class Api::SongsController < ApplicationController
 
     private 
 
-    def song_params
+    def song_update_params
+        params.require(:song).permit(:id, :title, :artist_id, :cover_photo, :genre, :song_file)
+    end
+
+    def song_create_params
         params.require(:song).permit(:title, :artist_id, :cover_photo, :genre, :song_file)
     end
 end

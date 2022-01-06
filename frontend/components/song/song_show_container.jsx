@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SongShow from './song_show';
 import { logout } from '../../actions/session_actions';
-import { fetchSong } from '../../actions/song_actions';
+import { fetchSong, deleteSong } from '../../actions/song_actions';
 
 const mSTP = (state, ownProps) => ({
     song: state.entities.songs[ownProps.match.params.songId],
@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    fetchSong: songId => dispatch(fetchSong(songId))
+    fetchSong: songId => dispatch(fetchSong(songId)),
+    deleteSong: songId => dispatch(deleteSong(songId))
 });
 
 export default connect(mSTP, mDTP)(SongShow);

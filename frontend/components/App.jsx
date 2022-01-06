@@ -20,6 +20,7 @@ const App = () => (
     <Route path={`/songs/:songId`} component={SongShowContainer} />
     <LogRoute exact path='/discover' component={DiscoverContainer} />
     <LogRoute exact path='/upload' component={CreateSongContainer} />
+    <LogRoute exact path='/update/:songId' component={UpdateSongContainer} />
     
     
   </div>

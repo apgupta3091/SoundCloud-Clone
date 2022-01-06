@@ -2,6 +2,7 @@ import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 class SongShow extends React.Component {
     componentDidMount() {
@@ -33,8 +34,8 @@ class SongShow extends React.Component {
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
                 <h1>hello</h1>
-                <button>Edit Song</button>
-                <button>Delete Song</button>
+                <Link to={`/update/${this.state.id}`}><button>Edit Song</button></Link>
+                <Link to='/discover'><button onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
             </div>
             ) : (
             <div>
@@ -59,6 +60,7 @@ class SongShow extends React.Component {
     };
     
     render() {
+        if (!this.props.song) { return null }
          return (
             <div>
                 {this.display()}
