@@ -23,6 +23,7 @@ class Discover extends React.Component {
                 <h1>hello</h1>
                 <div>
                     <h1 className="discover-h1">All Songs</h1>
+                    <p className="discover-p">Every song available on SoundWave</p>
                      <ul className="songs-list discover-song-list">
                         {
                             songs.map(song => (
@@ -41,6 +42,7 @@ class Discover extends React.Component {
                         }
                     </ul>
                     <h1 className="discover-h1">EDM</h1>
+                    <p className="discover-p">The latest and hottest EDM</p>
                     <ul className="songs-list discover-song-list">
                         {
                             edmSongs.map(song => (
@@ -59,6 +61,7 @@ class Discover extends React.Component {
                         }
                     </ul>
                     <h1 className="discover-h1">Hip-Hop</h1>
+                    <p className="discover-p">The latest and hottest Hip-Hop</p>
                     <ul className="songs-list discover-song-list">
                         {
                             hiphopSongs.map(song => (
@@ -77,6 +80,7 @@ class Discover extends React.Component {
                         }
                     </ul>
                     <h1 className="discover-h1">Pop</h1>
+                    <p className="discover-p">The latest and hottest Pop</p>
                     <ul className="songs-list discover-song-list" id="discover-song-list-last">
                         {
                             popSongs.map(song => (

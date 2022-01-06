@@ -80,13 +80,14 @@ class SongForm extends React.Component {
     };
 
 
+
+
     render(){
         const { errors, formType } = this.props;
         return (
             <div>
                 <NavBarContainer />
                 <h1>Hello</h1>
-                
                 <div className='upload-song-form'>
                     <h1>{formType}</h1>
                     <ul>

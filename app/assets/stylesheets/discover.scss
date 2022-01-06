@@ -3,9 +3,10 @@
     justify-content: start;
     border-bottom: 1px solid rgb(236, 235, 235);
     padding-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
     flex-wrap: nowrap;
     overflow: hidden;
+    margin-left: 18px;
 }
 
 #discover-song-list-last {
@@ -18,4 +19,11 @@
     margin-left: 30px;
     margin-top:20px;
 
+}
+
+.discover-p {
+    margin-left: 30px;
+    font-weight: 100;
+    color: rgb(129, 128, 128);
+    margin-top: -10px;
 }

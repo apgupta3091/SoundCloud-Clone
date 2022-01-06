@@ -33,7 +33,6 @@ class SongShow extends React.Component {
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
-                <h1>hello</h1>
                 <Link to={`/update/${this.state.id}`}><button>Edit Song</button></Link>
                 <Link to='/discover'><button onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
             </div>
