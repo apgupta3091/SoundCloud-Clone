@@ -33,8 +33,8 @@ class SongShow extends React.Component {
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
-                <Link to={`/update/${this.state.id}`}><button>Edit Song</button></Link>
-                <Link to='/discover'><button onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
+                <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
+                <Link to='/discover'><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
             </div>
             ) : (
             <div>

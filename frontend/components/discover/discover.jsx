@@ -17,6 +17,13 @@ class Discover extends React.Component {
         let edmSongs = songs.filter(song => song.genre ==='edm')
         let hiphopSongs = songs.filter(song => song.genre ==='hip-hop')
         let popSongs = songs.filter(song => song.genre ==='pop')
+        let songsCopy = songs.slice();
+        let reverseSongs = songsCopy.reverse();
+        let newSongs = [];
+        for (let i = 0; i < 10; i++){
+            newSongs.push(reverseSongs[i]);
+        };
+
         return(
             <div>
                 <NavBarContainer />
@@ -27,6 +34,25 @@ class Discover extends React.Component {
                      <ul className="songs-list discover-song-list">
                         {
                             songs.map(song => (
+                                song ?
+                                (<span key={song.id}>
+                                    <Link className="song-links" to={`/songs/${song.id}`}>
+                                        <li>
+                                            <img className="song-cover-photo" src={song.coverPhoto}></img>
+                                        </li>
+                                        <p className="song-title">{song.title}</p>
+                                        <p className="song-artist">{song.artist.username}</p>
+                                    </Link>
+
+                                </span>): null
+                            ))
+                        }
+                    </ul>
+                    <h1 className="discover-h1">Charts: New & hot</h1>
+                    <p className="discover-p">Top 10 newest songs on SoundWave</p>
+                     <ul className="songs-list discover-song-list">
+                        {
+                            newSongs.map(song => (
                                 song ?
                                 (<span key={song.id}>
                                     <Link className="song-links" to={`/songs/${song.id}`}>
