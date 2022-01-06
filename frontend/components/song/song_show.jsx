@@ -16,7 +16,7 @@ class SongShow extends React.Component {
 
     display() {
         return(
-            this.props.song.uploader.id === this.props.currentUserId ? (
+            this.props.song.artist.id === this.props.currentUserId ? (
             <div>
                 <NavBarContainer /> 
                 <div className="show-context">
@@ -27,7 +27,7 @@ class SongShow extends React.Component {
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
                     </div>
                     <div className="song-show-content-genre-date">
-                        <p className="song-show-uploader">{this.state.uploader.username}</p>
+                        <p className="song-show-uploader">{this.state.artist.username}</p>
                         <p className="song-show-genre">#{this.state.genre}</p>
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
@@ -47,7 +47,7 @@ class SongShow extends React.Component {
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
                     </div>
                     <div className="song-show-content-genre-date">
-                        <p className="song-show-uploader">{this.state.uploader.username}</p>
+                        <p className="song-show-uploader">{this.state.artist.username}</p>
                         <p className="song-show-genre">#{this.state.genre}</p>
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 

@@ -3,7 +3,7 @@ json.createdAt time_ago_in_words(song.created_at)
 
 
 
-json.uploader do
+json.artist do
     json.extract! song.artist, :id, :username
     if song.artist.profile_pic.attached?
         json.profilePic url_for(song.artist.profile_pic)

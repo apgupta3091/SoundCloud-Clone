@@ -44,7 +44,7 @@ class Main extends React.Component {
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
                                         </li>
                                         <p className="song-title">{song.title}</p>
-                                        <p className="song-artist">{song.uploader.username}</p>
+                                        <p className="song-artist">{song.artist.username}</p>
                                     </Link>
 
                                 </span>): null
