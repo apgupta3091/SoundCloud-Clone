@@ -1,0 +1,21 @@
+.discover-song-list {
+    display: flex;
+    justify-content: start;
+    border-bottom: 1px solid rgb(236, 235, 235);
+    padding-bottom: 20px;
+    margin-top: 40px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+#discover-song-list-last {
+    border: none;
+}
+
+.discover-h1{
+    font-weight: 300;
+    font-size: 26px;
+    margin-left: 30px;
+    margin-top:20px;
+
+}

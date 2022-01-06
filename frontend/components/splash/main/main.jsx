@@ -24,10 +24,10 @@ class Main extends React.Component {
 
     
     render(){
-        const { songs, allSongs } =  this.props;
+        const { songs } =  this.props;
         const splashSongs =[];
         for (let i = 0; i < 12; i++){
-            splashSongs.push(allSongs[i]);
+            splashSongs.push(songs[i]);
         };
         return (
             <div className="main-container">
