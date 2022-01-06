@@ -3,14 +3,19 @@ import Footer from '../footer/footer';
 import NavBarContainer from '../navbar/navbar_container';
 import { Link } from "react-router-dom";
 
+
 class Discover extends React.Component {
     constructor(props){
         super(props);
     };
 
     componentDidMount(){
-        this.props.fetchSongs();
-    }
+        setTimeout(() => this.props.fetchSongs(), 1000);
+        // this.props.fetchSongs();
+    };
+
+    
+    
 
     render(){
         const { songs } =  this.props;
@@ -23,6 +28,8 @@ class Discover extends React.Component {
         for (let i = 0; i < 10; i++){
             newSongs.push(reverseSongs[i]);
         };
+
+        
 
         return(
             <div>
@@ -126,6 +133,7 @@ class Discover extends React.Component {
                     </ul>
                 </div>
                 <Footer />
+
             </div>
         );
     };

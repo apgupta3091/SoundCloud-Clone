@@ -8,12 +8,18 @@ class SongShow extends React.Component {
     componentDidMount() {
         this.props.fetchSong(this.props.song.id);
         window.scrollTo(0, 0);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     constructor(props){
         super(props);
         this.state = this.props.song;
         this.display = this.display.bind(this);
     };
+
+    handleDelete(){
+        this.props.deleteSong(this.props.songId).then(setTimeout(() => null), 3000).then(this.props.history.push('/discover'));
+    }
+    
 
     display() {
         return(
@@ -34,7 +40,7 @@ class SongShow extends React.Component {
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
-                <Link to='/discover'><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
+                <button id="show-delete-btn" onClick={() => this.handleDelete()}>Delete Song</button>
             </div>
             ) : (
             <div>

@@ -5,8 +5,9 @@
     padding-bottom: 20px;
     margin-top: 30px;
     flex-wrap: nowrap;
-    overflow: hidden;
+    overflow-y: scroll;
     margin-left: 18px;
+    scroll-behavior: auto;
 }
 
 #discover-song-list-last {

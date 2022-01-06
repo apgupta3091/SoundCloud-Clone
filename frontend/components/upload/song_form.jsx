@@ -2,7 +2,6 @@ import React from "react";
 import NavBarContainer from '../navbar/navbar_container';
 import Footer from '../footer/footer';
 
-
 class SongForm extends React.Component {
     constructor(props){
         super(props);
@@ -48,7 +47,6 @@ class SongForm extends React.Component {
     };
 
     handleSubmit(e){
-        e.preventDefault();
         const formData = new FormData();
         formData.append('song[id]', this.state.id);
         formData.append('song[title]', this.state.title);
@@ -61,7 +59,7 @@ class SongForm extends React.Component {
         };        
 
         this.props.action(formData).then(this.resetState);
-        this.props.history.push('/discover')
+        this.props.history.push('/discover');
         this.props.clearSongErrors();
     };
 
