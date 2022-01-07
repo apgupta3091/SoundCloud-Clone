@@ -3,6 +3,7 @@ import NavBarContainer from '../navbar/navbar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import Footer from '../footer/footer';
 
 class SongShow extends React.Component {
     componentDidMount() {
@@ -41,6 +42,7 @@ class SongShow extends React.Component {
                 </div>
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <button id="show-delete-btn" onClick={() => this.handleDelete()}>Delete Song</button>
+                <Footer />
             </div>
             ) : (
             <div>
@@ -58,7 +60,7 @@ class SongShow extends React.Component {
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
-                <h1>hello</h1>
+                <Footer />
             </div>
             )
         );
