@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SongForm from './song_form';
 import { createSong } from '../../actions/song_actions';
-import { clearSongErrors } from "../../actions/song_actions";
+import { clearSongErrors, receiveSongErrors } from "../../actions/song_actions";
 
 const mSTP =  state => ({
     errors: state.errors.song,
@@ -17,7 +17,9 @@ const mSTP =  state => ({
 
 const mDTP = dispatch => ({
     action: song => dispatch(createSong(song)),
-    clearSongErrors: () => dispatch(clearSongErrors())
+    clearSongErrors: () => dispatch(clearSongErrors()),
+    receiveSongErrors: () => dispatch(receiveSongErrors()),
+
 });
 
 

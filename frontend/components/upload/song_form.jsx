@@ -53,14 +53,16 @@ class SongForm extends React.Component {
         formData.append('song[genre]', this.state.genre);
         if (this.state.coverPhoto) {
             formData.append('song[cover_photo]', this.state.coverPhoto);
-        };
+        } 
         if (this.state.songFile) {
             formData.append('song[song_file]', this.state.songFile);
         };        
 
         this.props.action(formData).then(this.resetState);
-        setTimeout(() => this.props.history.push('/discover'), 5000);
         this.props.clearSongErrors();
+        if (this.state.title && this.state.coverPhoto && this.state.songFile){
+            setTimeout(() => this.props.history.push('/discover'), 5000);
+        } 
 
     };
 
@@ -81,17 +83,19 @@ class SongForm extends React.Component {
 
     render(){
         const { errors, formType } = this.props;
+        const errorsArr = errors.slice();  
+        errorsArr.push("Cover photo and Mp3 file will default if left blank")
         return (
             <div>
                 <NavBarContainer />
                 <h1>Hello</h1>
                 <div className='upload-song-form'>
                     <h1>{formType}</h1>
-                    <ul>
-                    {
-                        errors.length === 0 ? "" : errors.map(error => <li>{error}</li>)
+                    <ul className="errors-ul">
+                    {   
+                        errors.length === 0 ? "" : errorsArr.map((error, i) => <li className="errors" key={i}>{error}</li>)
                     }
-                </ul>
+                    </ul>
                     <form className="upload-song-form-form" onSubmit={this.handleSubmit}>
                         
                         <label>Title

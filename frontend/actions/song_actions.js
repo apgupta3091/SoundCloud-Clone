@@ -44,15 +44,15 @@ export const fetchSong = songId => dispatch => {
     return SongAPIUtil.fetchSong(songId).then(song => dispatch(receiveSong(song)))
 };
 
-export const createSong = song => dispatch => (
-    SongAPIUtil.createSong(song).then(song => dispatch(receiveSong(song)))
-        
-);
+export const createSong = song => dispatch => SongAPIUtil.createSong(song)
+.then(song => {
+    !(song instanceof Array) ? dispatch(receiveSong(song)) : dispatch(receiveSongErrors(song))
+});
 
-export const updateSong = song => dispatch => (
-    SongAPIUtil.updateSong(song).then(song => dispatch(receiveSong(song)),
-        err => dispatch(receiveSongErrors(err.responseJSON)))
-);
+export const updateSong = song => dispatch => SongAPIUtil.updateSong(song)
+.then(song => {
+    !(song instanceof Array) ? dispatch(receiveSong(song)) : dispatch(receiveSongErrors(song))
+});
 
 export const deleteSong = songId => dispatch => (
     SongAPIUtil.deleteSong(songId).then(() => dispatch(removeSong(songId)))

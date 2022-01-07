@@ -16,7 +16,7 @@ class Api::SongsController < ApplicationController
         if @song.save
             render :show 
         else
-            render json: @song.errors.full_messages, status: 422
+            render json: @song.errors.full_messages
         end
     end
 
@@ -25,7 +25,7 @@ class Api::SongsController < ApplicationController
         if @song.update(song_update_params)
             render :show 
         else
-            render json: @song.errors.full_messages, status: 422 
+            render json: @song.errors.full_messages 
         end
     end
 
@@ -42,6 +42,6 @@ class Api::SongsController < ApplicationController
     end
 
     def song_create_params
-        params.require(:song).permit(:title, :artist_id, :cover_photo, :genre, :song_file)
+        params.require(:song).permit( :title, :artist_id, :cover_photo, :genre, :song_file)
     end
 end

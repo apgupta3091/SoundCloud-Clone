@@ -20,4 +20,6 @@ end
 
 if song.song_file.attached? 
     json.songFile url_for(song.song_file)
+else
+    json.songFile ''
 end

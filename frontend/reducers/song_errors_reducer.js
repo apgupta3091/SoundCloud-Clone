@@ -5,7 +5,7 @@ const songErrorsReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_SONG_ERRORS:
-            return [];
+            return action.errors;
         case CLEAR_SONG_ERRORS:
             return [];
         default:
