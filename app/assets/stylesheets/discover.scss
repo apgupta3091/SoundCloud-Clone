@@ -28,3 +28,32 @@
     color: rgb(129, 128, 128);
     margin-top: -10px;
 }
+
+// .song-discover-play{
+//     height:30px;
+//     width: 30px;
+//     position: relative;
+//     color:white;
+//     padding:15px;
+//     border:0;
+//     background-color: #f50;
+//     border-radius: 50%;
+//     z-index:200;
+//     top:-120px;
+//     left:60px;
+// }
+
+// .song-discover-play:hover{
+//     background-color: rgb(255, 51, 0);
+//     cursor: pointer;
+//     z-index: 200;
+// }
+
+.song-title,
+.song-username {
+    margin-top: 10px;
+}
+
+.song-discover-play{
+    display: block;
+}

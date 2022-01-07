@@ -133,14 +133,25 @@ footer {
     width: 80%;
     height: 35px;
     font-size:18px;
-    margin: 10px 0;
+    margin: 14px 0;
+    margin-top: 5px;
     pointer-events: all;
     
 }
 
 .guest-btn{
+    width: 82%;
+    background-color:#f50;
+    color:white;
+    height: 35px;
+    border: 1px solid #f50;
+    font-size:16px;
+    margin-bottom: -10px;
+    pointer-events: all;
+    cursor: pointer;
     margin-bottom:0;
     pointer-events: all;
+    margin-right:19px;
 }
 
 .modal button {
@@ -153,6 +164,7 @@ footer {
     margin-bottom: 30px;
     pointer-events: all;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .form-type {
@@ -245,4 +257,15 @@ footer a {
 .song-links{
     text-decoration: none;
     
+}
+
+.errors-splash-form{
+    text-align: center;
+
+}
+
+.errors-splash-form li{
+    list-style: none;
+    font-size:18px;
+    margin-right:30px;
 }

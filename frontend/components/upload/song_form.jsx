@@ -59,8 +59,9 @@ class SongForm extends React.Component {
         };        
 
         this.props.action(formData).then(this.resetState);
-        this.props.history.push('/discover');
+        setTimeout(() => this.props.history.push('/discover'), 5000);
         this.props.clearSongErrors();
+
     };
 
     
@@ -76,8 +77,6 @@ class SongForm extends React.Component {
             });
         };
     };
-
-
 
 
     render(){

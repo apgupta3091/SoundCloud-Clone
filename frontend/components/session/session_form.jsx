@@ -76,9 +76,9 @@ class SessionForm extends React.Component {
                 <p className="x-btn" onClick={this.closeModal}>&#88;</p>
                 <button className="guest-btn" onClick={this.loginGuest}>Login as a Guest</button>
                 
-                <ul className="errors-spash-form">
+                <ul className="errors-splash-form">
                     {
-                        this.props.errors.map((error, idx) => <p key={idx}>{error}</p>)
+                        this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
                     }
                 </ul>
                 <form>
