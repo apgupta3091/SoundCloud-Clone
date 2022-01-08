@@ -1,6 +1,10 @@
 class Song < ApplicationRecord 
     validates :title, :artist_id, presence:true 
     validates :genre, inclusion: { in: ['pop', 'hip-hop', 'edm'] }
+    validates :song_file, presence:true
+    validates :cover_photo, presence:true  
+
+
 
     belongs_to :artist,
     primary_key: :id, 

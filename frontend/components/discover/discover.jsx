@@ -14,26 +14,10 @@ class Discover extends React.Component {
     };
 
     componentDidMount(){
-        setTimeout(() => this.props.fetchSongs(), 1000);
+        // setTimeout(() => this.props.fetchSongs(), 2000);
+        this.props.fetchSongs();
     };
 
-    // seePlay(e){
-    //     let songPlayBtn = document.querySelector('.song-discover-play');
-    //     let songTitle = document.querySelector('song-title');
-    //     let songUsername = document.querySelector('song-username');
-    //     songPlayBtn.classList.remove('hidden');
-    //     songTitle.classList.add('update-p')
-    //     songUsername.classList.add('update-p');
-    // };
-
-    // hidePlay(e){
-    //     let songPlayBtn = document.querySelector('.song-discover-play');
-    
-    //     songPlayBtn.classList.add('hidden');
-    // };
-
-    
-    
 
     render(){
         const { songs } =  this.props;

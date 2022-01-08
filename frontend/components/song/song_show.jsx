@@ -18,7 +18,7 @@ class SongShow extends React.Component {
     };
 
     handleDelete(){
-        this.props.deleteSong(this.props.songId).then(setTimeout(() => null), 3000).then(this.props.history.push('/discover'));
+        this.props.deleteSong(this.props.songId).then(setTimeout(() => (this.props.history.push('/discover'), 3000)));
     }
     
 

@@ -7,9 +7,9 @@ class SongForm extends React.Component {
         super(props);
         this.state = {
             ...this.props.song,
-            coverPhoto: this.props.song.coverPhoto || null, 
-            songFile: this.props.song.songFile || null, 
-            genre: this.props.song.genre || 'edm',
+            coverPhoto: null, 
+            songFile: null,
+            genre: this.props.song.genre || 'select-genre',
         }
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
@@ -61,9 +61,10 @@ class SongForm extends React.Component {
         this.props.action(formData).then(this.resetState);
         this.props.clearSongErrors();
         if (this.state.title && this.state.coverPhoto && this.state.songFile){
-            setTimeout(() => this.props.history.push('/discover'), 5000);
-        } 
-
+            setTimeout(() => this.props.history.push('/discover'), 2000);
+        } else if (this.props.formType === "Update Song" &&  this.state.title && this.state.coverPhoto && this.state.songFile) {
+            this.props.history.push('/discover');
+        }
     };
 
     
@@ -75,17 +76,18 @@ class SongForm extends React.Component {
                 coverPhoto: null,
                 coverPhotoURL: null,
                 songFile: null,
-                genre: 'edm'
+                genre: 'select-genre'
             });
         };
     };
 
 
+
+
     render(){
         const { errors, formType } = this.props;
-        const errorsArr = errors.slice();  
-        errorsArr.push("Cover photo and Mp3 file will default if left blank")
-        return (
+
+        const display = this.props.formType === 'Create Song' ? ( 
             <div>
                 <NavBarContainer />
                 <h1>Hello</h1>
@@ -93,7 +95,7 @@ class SongForm extends React.Component {
                     <h1>{formType}</h1>
                     <ul className="errors-ul">
                     {   
-                        errors.length === 0 ? "" : errorsArr.map((error, i) => <li className="errors" key={i}>{error}</li>)
+                        errors.length === 0 ? "" : errors.map((error, i) => <li className="errors" key={i}>{error}</li>)
                     }
                     </ul>
                     <form className="upload-song-form-form" onSubmit={this.handleSubmit}>
@@ -106,8 +108,8 @@ class SongForm extends React.Component {
                             ></input>
                         </label>
                         <label>Genre
-                            <select value={this.state.genre ? this.state.genre : 'select-genre'} onChange={this.handleGenre}>
-                                <option value="select genre" disabled>Select Genre</option>
+                            <select value={this.state.genre} name="genre" onChange={this.handleGenre}>
+                                <option value="select-genre"  disabled="true">Select Genre</option>
                                 <option value='edm'>edm</option>
                                 <option value='hip-hop'>hip-hop</option>
                                 <option value='pop'>pop</option>
@@ -129,6 +131,57 @@ class SongForm extends React.Component {
                     </form>
                 </div>
                 <Footer />
+            </div>
+        ) : (  
+            <div>
+                <NavBarContainer />
+                <h1>Hello</h1>
+                <div className='upload-song-form'>
+                    <h1>{formType}</h1>
+                    <ul className="errors-ul">
+                    {   
+                        errors.length === 0 ? "" : errors.map((error, i) => <li className="errors" key={i}>{error}</li>)
+                    }
+                    </ul>
+                    <form className="upload-song-form-form" onSubmit={this.handleSubmit}>
+                        
+                        <label>Title
+                            <input
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.handleChange('title')}
+                            ></input>
+                        </label>
+                        <label>Genre
+                            <select value={this.state.genre} name="genre" onChange={this.handleGenre}>
+                                <option value="select-genre"  disabled="true">Select Genre</option>
+                                <option value='edm'>edm</option>
+                                <option value='hip-hop'>hip-hop</option>
+                                <option value='pop'>pop</option>
+                            </select>
+                        </label>
+                        <label>Choose a cover pic
+                            <input
+                                type="file"
+                                onChange={this.handlePhotoFile}
+                            ></input>
+                        </label>
+                        <label>Choose a mp3 file
+                            <input
+                                type="file"
+                                onChange={this.handleSongFile}
+                            ></input>
+                        </label>
+                        <button>{formType}</button>
+                    </form>
+                </div>
+                <Footer />
+            </div>
+        );
+
+        return (
+            <div>
+                {display}
             </div>
         );
     };
