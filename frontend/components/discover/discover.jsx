@@ -14,8 +14,7 @@ class Discover extends React.Component {
     };
 
     componentDidMount(){
-        // setTimeout(() => this.props.fetchSongs(), 2000);
-        this.props.fetchSongs();
+        setTimeout(() => this.props.fetchSongs(), 2000);
     };
 
 

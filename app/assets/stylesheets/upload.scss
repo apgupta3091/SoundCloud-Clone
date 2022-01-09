@@ -41,3 +41,22 @@
     list-style: none;
     font-size: 20px;
 }
+
+.success-msg{
+    display: flex;
+    padding: 10px; 
+    background: rgb(41, 41, 41);
+    color:white;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    width: 40%;
+    margin-top: 50px;
+}
+
+.crud-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

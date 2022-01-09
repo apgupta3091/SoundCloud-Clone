@@ -10,12 +10,14 @@ class SongForm extends React.Component {
             coverPhoto: null, 
             songFile: null,
             genre: this.props.song.genre || 'select-genre',
-        }
+            submitted: false,
+        };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handlePhotoFile = this.handlePhotoFile.bind(this);
         this.handleSongFile = this.handleSongFile.bind(this);
         this.handleGenre=this.handleGenre.bind(this);
         this.resetState = this.resetState.bind(this);
+        this.updateSubmittedStatus = this.updateSubmittedStatus.bind(this);
     };
 
     componentDidMount(){
@@ -24,11 +26,15 @@ class SongForm extends React.Component {
 
      handleGenre(e) {
         this.setState({genre: e.currentTarget.value})
-    }
+    };
 
     handleChange(type){
         return e => this.setState({ [type]: e.currentTarget.value });
-    }
+    };
+
+    handleSongFile(e){
+        this.setState({songFile: e.currentTarget.files[0]})
+    };
 
     handlePhotoFile(e){
         const file = e.currentTarget.files[0];
@@ -42,11 +48,13 @@ class SongForm extends React.Component {
         };
     };
 
-    handleSongFile(e){
-        this.setState({songFile: e.currentTarget.files[0]})
+
+    updateSubmittedStatus () {
+        this.setState({ ['submitted']: true })
     };
 
     handleSubmit(e){
+        e.preventDefault();
         const formData = new FormData();
         formData.append('song[id]', this.state.id);
         formData.append('song[title]', this.state.title);
@@ -58,16 +66,10 @@ class SongForm extends React.Component {
             formData.append('song[song_file]', this.state.songFile);
         };        
 
-        this.props.action(formData).then(this.resetState);
-        this.props.clearSongErrors();
-        if (this.state.title && this.state.coverPhoto && this.state.songFile){
-            setTimeout(() => this.props.history.push('/discover'), 2000);
-        } else if (this.props.formType === "Update Song" &&  this.state.title && this.state.coverPhoto && this.state.songFile) {
-            this.props.history.push('/discover');
-        }
-    };
+        this.props.action(formData).then(this.updateLoading).then(this.resetState).then(this.updateSubmittedStatus)
 
-    
+        this.props.clearSongErrors();
+    };
 
     resetState() {
         if (this.props.formType === 'Create Song') {
@@ -76,7 +78,8 @@ class SongForm extends React.Component {
                 coverPhoto: null,
                 coverPhotoURL: null,
                 songFile: null,
-                genre: 'select-genre'
+                genre: 'select-genre',
+                submitted: false,
             });
         };
     };
@@ -86,11 +89,25 @@ class SongForm extends React.Component {
 
     render(){
         const { errors, formType } = this.props;
-
+        const success = this.state.submitted  && errors.length === 0 ? ( 
+            <div className="success-msg">
+                Uploaded!
+            </div>
+        ) : ( 
+            null
+        );
+        const update = this.state.submitted  && errors.length === 0 ? ( 
+            <div className="success-msg">
+                Updated!
+            </div>
+        ) : ( 
+            null
+        );
         const display = this.props.formType === 'Create Song' ? ( 
-            <div>
+            <div className="crud-container">
                 <NavBarContainer />
                 <h1>Hello</h1>
+                {success}
                 <div className='upload-song-form'>
                     <h1>{formType}</h1>
                     <ul className="errors-ul">
@@ -133,9 +150,10 @@ class SongForm extends React.Component {
                 <Footer />
             </div>
         ) : (  
-            <div>
+            <div className="crud-container">
                 <NavBarContainer />
                 <h1>Hello</h1>
+                {update}
                 <div className='upload-song-form'>
                     <h1>{formType}</h1>
                     <ul className="errors-ul">
