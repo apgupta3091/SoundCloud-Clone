@@ -11,7 +11,7 @@ const playReducer = (oldState=defaultState, action) => {
     switch (action.type) {
         case RECEIVE_SONG:
             nextState["currentSong"] = action.song;
-            nextState["playing"] = true;
+            nextState["playing"] = false;
             return nextState;
         case REMOVE_SONG:
             return oldState;

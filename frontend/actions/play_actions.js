@@ -12,10 +12,10 @@ export const removeSong = () => ({
     type: REMOVE_SONG,
 });
 
-export const playSong = dispatch => ({
+export const playSong = () => ({
  type: PLAY_SONG,
 });
 
-export const pauseSong = dispatch => ({
+export const pauseSong = () => ({
  type: PAUSE_SONG,
 });

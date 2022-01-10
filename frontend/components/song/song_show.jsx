@@ -2,7 +2,7 @@ import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
 import PlayContainer from '../play/play_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
 
@@ -10,12 +10,29 @@ class SongShow extends React.Component {
     componentDidMount() {
         this.props.fetchSong(this.props.song.id);
         window.scrollTo(0, 0);
+        this.handlePlay = this.handlePlay.bind(this);
     }
     constructor(props){
         super(props);
-        this.state = this.props.song;
+        this.state = {
+            ...this.props.song,
+            playing: this.props.playing,
+        }
+
         this.display = this.display.bind(this);
     };
+
+    handlePlay() {
+        if (this.state.playing){
+            this.setState({ playing: false })
+            this.props.pauseSong();
+        } else {
+            this.setState({ playing: true })
+            this.props.playSong()
+        };
+    };
+
+    
 
     display() {
         return(
@@ -24,7 +41,7 @@ class SongShow extends React.Component {
                 <NavBarContainer /> 
                 <div className="show-context">
                     <h1>hello</h1>
-                    <FontAwesomeIcon className="song-show-play" icon={faPlay}></FontAwesomeIcon>
+                    <FontAwesomeIcon className="song-show-play" icon={this.state.playing? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
                     <div className="song-show-content-title-uploader">
                         <h1 className="song-show-title">{this.state.title}</h1>
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
@@ -45,7 +62,7 @@ class SongShow extends React.Component {
                 <NavBarContainer /> 
                 <div className="show-context">
                     <h1>hello</h1>
-                    <FontAwesomeIcon className="song-show-play" icon={faPlay}></FontAwesomeIcon>
+                    <FontAwesomeIcon className="song-show-play" icon={this.state.playing? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
                     <div className="song-show-content-title-uploader">
                         <h1 className="song-show-title">{this.state.title}</h1>
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
