@@ -10,13 +10,12 @@ import { faThemeisle } from "@fortawesome/free-brands-svg-icons";
 class Discover extends React.Component {
     constructor(props){
         super(props);
-       
+
     };
 
     componentDidMount(){
         setTimeout(() => this.props.fetchSongs(), 2000);
     };
-
 
     render(){
         const { songs } =  this.props;
@@ -29,6 +28,8 @@ class Discover extends React.Component {
         for (let i = 0; i < 10; i++){
             newSongs.push(reverseSongs[i]);
         };
+
+       
 
         return(
             <div>
@@ -43,9 +44,9 @@ class Discover extends React.Component {
                                 song ?
                                 (<span key={song.id}>
                                     <Link className="song-links" to={`/songs/${song.id}`}>
-                                        <li >
+                                        <li>
                                             <img className="song-cover-photo" src={song.coverPhoto} ></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
+                                            <FontAwesomeIcon className="song-discover-play hidden" id="list1" icon={faPlay}></FontAwesomeIcon>
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -65,7 +66,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
+                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -85,7 +86,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
+                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -105,7 +106,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
+                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -125,7 +126,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
+                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
