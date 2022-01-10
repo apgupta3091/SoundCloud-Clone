@@ -1,11 +1,11 @@
 import { RECEIVE_SONG, REMOVE_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/play_actions';
 
-const _defaultState = {
-    currentSong = null,
-    playing = false
+const defaultState = {
+    currentSong: null,
+    playing: false,
 };
 
-const playReducer = (oldState=_defaultState, action) => {
+const playReducer = (oldState=defaultState, action) => {
     Object.freeze(oldState);
     const nextState = Object.assign({}, oldState);
     switch (action.type) {

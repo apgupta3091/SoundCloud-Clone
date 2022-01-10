@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
+import PlayContainer from '../play/play_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
@@ -15,9 +16,6 @@ class SongShow extends React.Component {
         this.state = this.props.song;
         this.display = this.display.bind(this);
     };
-
-    
-    
 
     display() {
         return(
@@ -39,6 +37,7 @@ class SongShow extends React.Component {
                 </div>
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
+                <PlayContainer />
                 <Footer />
             </div>
             ) : (
@@ -57,6 +56,11 @@ class SongShow extends React.Component {
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
+                <PlayContainer />
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
                 <Footer />
             </div>
             )
