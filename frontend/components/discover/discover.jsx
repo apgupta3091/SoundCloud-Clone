@@ -30,8 +30,6 @@ class Discover extends React.Component {
             newSongs.push(reverseSongs[i]);
         };
 
-        
-
         return(
             <div>
                 <NavBarContainer />
