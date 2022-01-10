@@ -1,8 +1,8 @@
 class Song < ApplicationRecord 
     validates :title, :artist_id, presence:true 
     validates :genre, inclusion: { in: ['pop', 'hip-hop', 'edm'] }
-    # validate :ensure_song_file
-    # validate :ensure_cover_photo
+    validate :ensure_song_file
+    validate :ensure_cover_photo
 
 
 
@@ -15,16 +15,16 @@ class Song < ApplicationRecord
 
     has_one_attached :song_file 
 
-    # def ensure_cover_photo
-    #     unless self.cover_photo.attached?
-    #         errors[:cover_photo] << " is required*"
-    #     end
-    # end
+    def ensure_cover_photo
+        unless self.cover_photo.attached?
+            errors[:cover_photo] << " is required*"
+        end
+    end
 
-    # def ensure_song_file
-    #     unless self.song_file.attached?
-    #         errors[:song_file] << " is required*"
-    #     end
-    # end
+    def ensure_song_file
+        unless self.song_file.attached?
+            errors[:song_file] << " is required*"
+        end
+    end
     
 end
