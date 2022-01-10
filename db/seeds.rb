@@ -114,7 +114,7 @@ song24_image = open('https://soundwave-seeds.s3.amazonaws.com/images/money.jpg')
 song24.cover_photo.attach(io: song24_image, filename: 'money.jpg')
 
 song25 = Song.create!(title:'Diploma', artist_id: user7.id, genre:'pop')
-song25_image = open('https://soundwave-seeds.s3.amazonaws.com/images/diploma.jpgg')
+song25_image = open('https://soundwave-seeds.s3.amazonaws.com/images/diploma.jpg')
 song25.cover_photo.attach(io: song25_image, filename: 'diploma.jpg')
 
 song26 = Song.create!(title:'Peace', artist_id: user7.id, genre:'pop')
