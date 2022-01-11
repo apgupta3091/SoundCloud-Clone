@@ -11,22 +11,30 @@ class SongShow extends React.Component {
         this.props.fetchSong(this.props.song.id);
         window.scrollTo(0, 0);
         this.handlePlay = this.handlePlay.bind(this);
+        this.myRef = React.createRef();
+
     }
     constructor(props){
         super(props);
         this.state = {
             ...this.props.song,
             playing: this.props.playing,
+            show: this.props.show,
         }
         this.display = this.display.bind(this);
     };
 
     handlePlay() {
+        const audioEl = this.myRef.current;
+        console.log(audioEl);
         if (this.state.playing){
+            audioEl.pause();
             this.setState({ playing: false })
             this.props.pauseSong();
         } else {
+            audioEl.play();
             this.setState({ playing: true })
+            this.setState({ show: true })
             this.props.playSong()
         };
     };
@@ -50,12 +58,21 @@ class SongShow extends React.Component {
                         <p className="song-show-genre">#{this.state.genre}</p>
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
+                    <audio
+                        ref={this.myRef}
+                        src={this.props.song.songFile}
+                    ></audio>
                 </div>
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
+
                 {
-                    this.state.playing ? <PlayContainer /> :  null
+                    this.state.show ? <PlayContainer song={this.props.song}/> :  null 
                 }
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
+                <h1>hello</h1>
                 <Footer />
             </div>
             ) : (
@@ -73,9 +90,13 @@ class SongShow extends React.Component {
                         <p className="song-show-genre">#{this.state.genre}</p>
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
+                    <audio
+                        ref={this.myRef}
+                        src={this.props.song.songFile}
+                    ></audio>
                 </div>
                 {
-                    this.state.playing ? <PlayContainer /> :  null
+                    this.state.show ? <PlayContainer song={this.props.song}/> : null 
                 }
                 <h1>hello</h1>
                 <h1>hello</h1>

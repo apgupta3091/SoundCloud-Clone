@@ -24,8 +24,8 @@
     margin-left: 120px;
 }
 
-.playbar p {
-    margin-left: 20px;
+.start-time {
+    margin-left: 40px;
     display: inline-block;
     color:#f50;
     font-size: 13px;
@@ -43,4 +43,32 @@
     margin-left: 40px;
     height: 17px;
     width: 17px;
+}
+
+.playbar-song-cover{
+    height:35px;
+    width:35px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.playbar-p-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.playbar-p{
+    margin-left: 15px;
+    font-size: 13px;
+
+}
+
+.playbar-p:first-child{
+    margin-bottom: 2px;
+    color: #999
+}
+
+.playbar-p:last-child{
+    margin-top: 2px;
+    color: #666;
 }

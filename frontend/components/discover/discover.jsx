@@ -139,7 +139,6 @@ class Discover extends React.Component {
                         }
                     </ul>
                 </div>
-                <PlayContainer />
                 <Footer />
 
             </div>

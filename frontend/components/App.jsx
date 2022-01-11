@@ -13,8 +13,9 @@ import CreateSongContainer from './upload/create_song_container';
 const App = () => (
   <div className="main overlay hide">
     <header>
-        
+      
     </header>
+   
 
     <AuthRoute exact path="/" component={GreetingContainer} />
     <Route path={`/songs/:songId`} component={SongShowContainer} />

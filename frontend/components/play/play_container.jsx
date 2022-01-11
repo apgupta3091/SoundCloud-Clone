@@ -5,8 +5,9 @@ import { receiveSong, removeSong, playSong, pauseSong } from '../../actions/play
 
 
 const mSTP = state => ({
-    song: state.ui.play.currentSong,
+    currentSong: state.ui.play.currentSong,
     playing: state.ui.play.playing,
+    show: state.ui.play.show,
 });
 
 const mDTP = (dispatch) => ({

@@ -3,6 +3,7 @@ import { RECEIVE_SONG, REMOVE_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/pla
 const defaultState = {
     currentSong: null,
     playing: false,
+    show: false,
 };
 
 const playReducer = (oldState=defaultState, action) => {
@@ -17,6 +18,7 @@ const playReducer = (oldState=defaultState, action) => {
             return oldState;
         case PLAY_SONG:
             nextState["playing"] = true;
+            nextState["show"] = true;
             return nextState;
         case PAUSE_SONG:
             nextState["playing"] = false;
