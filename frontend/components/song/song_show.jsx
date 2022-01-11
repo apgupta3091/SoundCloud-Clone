@@ -18,7 +18,6 @@ class SongShow extends React.Component {
             ...this.props.song,
             playing: this.props.playing,
         }
-
         this.display = this.display.bind(this);
     };
 
@@ -54,7 +53,9 @@ class SongShow extends React.Component {
                 </div>
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
-                <PlayContainer />
+                {
+                    this.state.playing ? <PlayContainer /> :  null
+                }
                 <Footer />
             </div>
             ) : (
@@ -73,7 +74,9 @@ class SongShow extends React.Component {
                     </div>
                     <img className="show-img" src={this.state.coverPhoto}></img> 
                 </div>
-                <PlayContainer />
+                {
+                    this.state.playing ? <PlayContainer /> :  null
+                }
                 <h1>hello</h1>
                 <h1>hello</h1>
                 <h1>hello</h1>

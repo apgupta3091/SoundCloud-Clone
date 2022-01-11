@@ -10,10 +10,10 @@ const mSTP = state => ({
 });
 
 const mDTP = (dispatch) => ({
-    // receiveSong: song => dispatch(receiveSong(song)),
-    // playSong: () => dispatch(playSong()),
-    // pauseSong: () => dispatch(pauseSong()),
-    // removeSong: () => dispatch(removeSong()),
+    receiveSong: song => dispatch(receiveSong(song)),
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong()),
+    removeSong: () => dispatch(removeSong()),
 });
 
 export default connect(mSTP, mDTP)(Play);

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { faThemeisle } from "@fortawesome/free-brands-svg-icons";
+import PlayContainer from '../play/play_container';
+import Play from "../play/play";
 
 
 class Discover extends React.Component {
@@ -137,6 +139,7 @@ class Discover extends React.Component {
                         }
                     </ul>
                 </div>
+                <PlayContainer />
                 <Footer />
 
             </div>
