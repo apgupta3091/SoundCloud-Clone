@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faForward, faBackward, faShuffle, faRefresh, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import { $CombinedState, combineReducers } from 'redux';
 
 class Play extends React.Component { 
     constructor(props){
@@ -9,10 +10,27 @@ class Play extends React.Component {
         this.state = {
             playing: this.props.playing,
             show: this.props.show,
+            startTime: 0
         }
         this.handlePlay = this.handlePlay.bind(this);
         this.myRef = React.createRef();
+        this.replaySong = this.replaySong.bind(this);
+        this.getDuration = this.getDuration.bind(this);
+        this.formatDuration = this.formatDuration.bind(this);
+        this.updateTimer = this.updateTimer.bind(this);
     };
+
+    componentDidMount(){
+        this.getDuration(this.props.song.songFile, (length) => {
+            let newLength = this.formatDuration(length)
+            document.getElementById('duration').textContent= newLength;
+        })
+        this.updateTimer();
+    }
+
+    componentDidUpdate(){
+        this.updateTimer();
+    }
 
      handlePlay() {
         const audioEl = this.myRef.current;
@@ -28,7 +46,38 @@ class Play extends React.Component {
         };
     };
 
+    replaySong() {
+        const audioEl = this.myRef.current;
+        audioEl.currentTime = 0;
+        audioEl.play();
+    }
+
+    getDuration(src, cb) {
+        let audio = new Audio();
+        $(audio).on("loadedmetadata", function() {
+            cb(audio.duration);
+        });
+        audio.src=src
+    }
+
+    formatDuration(duration) {
+        if (Math.floor(duration % 60) < 10) {
+            return `${Math.floor(duration / 60)}:0${Math.floor(duration) % 60}`
+        } else {
+            return `${Math.floor(duration / 60)}:${Math.floor(duration) % 60}`
+        } 
+    }
+
+    updateTimer () {
+        const audioEl = this.myRef.current;
+        const startTime = document.getElementById('start-time')
+        setInterval(() => {
+            startTime.textContent = this.formatDuration(audioEl.currentTime)
+        }, 1000);
+    };
+
     display() {
+        const audioEl = this.myRef.current;
         return ( 
             this.state.show ? ( 
                 <div className="playbar">
@@ -36,9 +85,10 @@ class Play extends React.Component {
                     <FontAwesomeIcon className="playbar-btn" icon={this.state.playing ? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
                     <FontAwesomeIcon className="playbar-btn" icon={faForward}></FontAwesomeIcon>
                     <FontAwesomeIcon className="playbar-btn" icon={faShuffle}></FontAwesomeIcon>
-                    <FontAwesomeIcon className="playbar-btn" icon={faRefresh}></FontAwesomeIcon>
-                    <p className="start-time">0:00</p>
+                    <FontAwesomeIcon className="playbar-btn" icon={faRefresh} onClick={this.replaySong}></FontAwesomeIcon>
+                    <p className="start-time" id="start-time"></p>
                     <span className='song-length'></span>
+                    <span id="duration"></span>
                     <FontAwesomeIcon className="playbar-btn last" icon={faVolumeUp}></FontAwesomeIcon>
                     <audio
                         ref={this.myRef}
