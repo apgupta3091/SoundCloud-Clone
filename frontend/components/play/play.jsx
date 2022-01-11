@@ -18,12 +18,15 @@ class Play extends React.Component {
         this.getDuration = this.getDuration.bind(this);
         this.formatDuration = this.formatDuration.bind(this);
         this.updateTimer = this.updateTimer.bind(this);
+        this.progressBarValue =this.progressBarValue.bind(this);
     };
 
     componentDidMount(){
+        const progressBar = document.getElementById('progress-bar')
         this.getDuration(this.props.song.songFile, (length) => {
             let newLength = this.formatDuration(length)
             document.getElementById('duration').textContent= newLength;
+            progressBar.max = newLength;
         })
         this.updateTimer();
     }
@@ -72,25 +75,39 @@ class Play extends React.Component {
         const audioEl = this.myRef.current;
         const startTime = document.getElementById('start-time')
         setInterval(() => {
-            startTime.textContent = this.formatDuration(audioEl.currentTime)
+            startTime.textContent = this.formatDuration(audioEl.currentTime);
         }, 1000);
     };
+
+    progressBarValue(){
+        const audioEl = this.myRef.current;
+        const progressBar = document.getElementById('progress-bar')
+        progressBar.value = audioEl.currentTime;
+    }
 
     display() {
         const audioEl = this.myRef.current;
         return ( 
             this.state.show ? ( 
                 <div className="playbar">
-                    <FontAwesomeIcon className="playbar-btn" id="playbar-btn-1" icon={faBackward}></FontAwesomeIcon>
+                    <span className="spacer"></span>
                     <FontAwesomeIcon className="playbar-btn" icon={this.state.playing ? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
-                    <FontAwesomeIcon className="playbar-btn" icon={faForward}></FontAwesomeIcon>
-                    <FontAwesomeIcon className="playbar-btn" icon={faShuffle}></FontAwesomeIcon>
                     <FontAwesomeIcon className="playbar-btn" icon={faRefresh} onClick={this.replaySong}></FontAwesomeIcon>
                     <p className="start-time" id="start-time"></p>
-                    <span className='song-length'></span>
+                    <div className="progress-bar-div">
+                        <input type="range"
+                            id="progress-bar"
+                            min="0"
+                            defaultValue="0"
+                            onChange={ e => {
+                                audioEl.currentTime = e.target.value;
+                            }}
+                        />
+                    </div>
                     <span id="duration"></span>
                     <FontAwesomeIcon className="playbar-btn last" icon={faVolumeUp}></FontAwesomeIcon>
                     <audio
+                        onTimeUpdate={this.progressBarValue}
                         ref={this.myRef}
                         src={this.props.song.songFile}
                     ></audio>
