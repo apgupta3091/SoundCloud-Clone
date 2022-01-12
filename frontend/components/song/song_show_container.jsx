@@ -10,18 +10,13 @@ const mSTP = (state, ownProps) => ({
     songId: ownProps.match.params.songId,
     currentUser: state.entities.users[state.session.id],
     currentUserId: state.session.id,
-    playing: state.ui.play.playing,
-    show: state.ui.play.show,
+
 });
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
     fetchSong: songId => dispatch(fetchSong(songId)),
     deleteSong: songId => dispatch(deleteSong(songId)),
-    receiveSong: song => dispatch(receiveSong(song)),
-    playSong: () => dispatch(playSong()),
-    pauseSong: () => dispatch(pauseSong()),
-    removeSong: () => dispatch(removeSong()),
 
 });
 

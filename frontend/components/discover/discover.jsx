@@ -48,7 +48,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto} ></img>
-                                            <FontAwesomeIcon className="song-discover-play hidden" id="list1" icon={faPlay}></FontAwesomeIcon>
+                                            {/* <FontAwesomeIcon className="song-discover-play hidden" id="list1" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -68,7 +68,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
+                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -88,7 +88,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
+                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -108,7 +108,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
+                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
@@ -128,7 +128,7 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon>
+                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>

@@ -1,56 +1,61 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faForward, faBackward, faShuffle, faRefresh, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
-import { $CombinedState, combineReducers } from 'redux';
+import { faPlay, faPause, faRefresh, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+
 
 class Play extends React.Component { 
     constructor(props){
         super(props);
-        this.display = this.display.bind(this);
         this.state = {
-            playing: this.props.playing,
-            show: this.props.show,
-            startTime: 0
+            startTime: 0,
+            volume: 0.5,
         }
-        this.handlePlay = this.handlePlay.bind(this);
-        this.myRef = React.createRef();
+        this.play = this.play.bind(this);
+        this.pause = this.pause.bind(this);
         this.replaySong = this.replaySong.bind(this);
         this.getDuration = this.getDuration.bind(this);
         this.formatDuration = this.formatDuration.bind(this);
         this.updateTimer = this.updateTimer.bind(this);
-        this.progressBarValue =this.progressBarValue.bind(this);
+        this.progressBarValue =this.progressBarValue.bind(this)
+        this.updateVolume = this.updateVolume.bind(this);
     };
 
-    componentDidMount(){
-        const progressBar = document.getElementById('progress-bar')
-        this.getDuration(this.props.song.songFile, (length) => {
-            let newLength = this.formatDuration(length)
-            document.getElementById('duration').textContent= newLength;
-            progressBar.max = newLength;
-        })
-        this.updateTimer();
-    }
-
-    componentDidUpdate(){
-        this.updateTimer();
-    }
-
-     handlePlay() {
-        const audioEl = this.myRef.current;
-        console.log(audioEl);
-        if (this.state.playing){
-            audioEl.pause();
-            this.setState({ playing: false })
-            this.props.pauseSong();
-        } else {
+    componentDidUpdate() {
+        if (this.props.playing) {
+            let audioEl = document.getElementById("audio-el");
             audioEl.play();
-            this.setState({ playing: true })
-            this.props.playSong()
-        };
+            this.updateTimer();
+        } if (this.props.currentSong) {
+            const progressBar = document.getElementById('progress-bar')
+            this.getDuration(this.props.song.songFile, (length) => {
+             let newLength = this.formatDuration(length)
+             document.getElementById('duration').textContent= newLength;
+             progressBar.max = newLength;
+            })
+         
+            if (!this.props.playing) {
+            let audioEl = document.getElementById("audio-el");
+            audioEl.pause();
+            }
+        }
+        
+    }
+
+    play(){
+        let audioEl = document.getElementById('audio-el');
+        console.log(audioEl)
+        this.props.playSong();
+        audioEl.play();
+    };
+    
+    pause(){
+        let audioEl = document.getElementById('audio-el');
+        console.log(audioEl)
+        this.props.pauseSong();
     };
 
     replaySong() {
-        const audioEl = this.myRef.current;
+        let audioEl = document.getElementById('audio-el');
         audioEl.currentTime = 0;
         audioEl.play();
     }
@@ -72,7 +77,7 @@ class Play extends React.Component {
     }
 
     updateTimer () {
-        const audioEl = this.myRef.current;
+        let audioEl = document.getElementById('audio-el');
         const startTime = document.getElementById('start-time')
         setInterval(() => {
             startTime.textContent = this.formatDuration(audioEl.currentTime);
@@ -80,18 +85,32 @@ class Play extends React.Component {
     };
 
     progressBarValue(){
-        const audioEl = this.myRef.current;
+        const audioEl = document.getElementById('audio-el');
         const progressBar = document.getElementById('progress-bar')
         progressBar.value = audioEl.currentTime;
     }
 
-    display() {
-        const audioEl = this.myRef.current;
-        return ( 
-            this.state.show ? ( 
-                <div className="playbar">
+    updateVolume(e){
+        const audioEl = document.getElementById('audio-el');
+        this.setState({ volume: e.target.value })
+        audioEl.volume = this.state.volume;
+    };
+
+    render(){
+        let audioEl = document.getElementById('audio-el');
+
+        if (!this.props.currentSong) return null;
+
+        let display = this.props.playing ? (
+            <FontAwesomeIcon id="playbar-play-icon" className="playbar-btn" icon={faPause} onClick={this.pause}></FontAwesomeIcon> 
+        ) : (
+            <FontAwesomeIcon id="playbar-play-icon" className="playbar-btn" icon={faPlay} onClick={this.play}></FontAwesomeIcon>
+        );
+
+        return (
+            <div className="playbar">
                     <span className="spacer"></span>
-                    <FontAwesomeIcon className="playbar-btn" icon={this.state.playing ? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
+                    {display}
                     <FontAwesomeIcon className="playbar-btn" icon={faRefresh} onClick={this.replaySong}></FontAwesomeIcon>
                     <p className="start-time" id="start-time"></p>
                     <div className="progress-bar-div">
@@ -105,10 +124,20 @@ class Play extends React.Component {
                         />
                     </div>
                     <span id="duration"></span>
-                    <FontAwesomeIcon className="playbar-btn last" icon={faVolumeUp}></FontAwesomeIcon>
+                    <div className="volume">
+                        <FontAwesomeIcon className="playbar-btn last" id="volume-icon" icon={faVolumeUp}></FontAwesomeIcon>
+                        <input type="range"
+                            className="volume-bar"
+                            min="0"
+                            max="1"
+                            step="0.1"
+                            value={this.state.volume}
+                            onChange={e => this.updateVolume(e)}
+                        />
+                    </div>
                     <audio
+                        id="audio-el"
                         onTimeUpdate={this.progressBarValue}
-                        ref={this.myRef}
                         src={this.props.song.songFile}
                     ></audio>
                     <img className="playbar-song-cover" src={this.props.song.coverPhoto}></img>
@@ -117,17 +146,6 @@ class Play extends React.Component {
                         <p className="playbar-p">{this.props.song.title}</p>
                     </div>
                 </div>
-            ) : ( 
-                null
-            )
-        );
-    };
-
-    render(){
-        return (
-            <div>
-                {this.display()}
-            </div>
         );
     };
 };

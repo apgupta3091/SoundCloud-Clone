@@ -1,10 +1,10 @@
-export const RECEIVE_SONG = "RECEIVE_SONG";
+export const RECEIVE_CURRENT_SONG = "RECEIVE_CURRENT_SONG";
 export const REMOVE_SONG = "REMOVE_SONG";
 export const PLAY_SONG = "PLAY_SONG";
 export const PAUSE_SONG = "PAUSE_SONG";
 
-export const receiveSong = song => ({
-    type: RECEIVE_SONG,
+export const receiveCurrentSong = song => ({
+    type: RECEIVE_CURRENT_SONG,
     song
 });
 

@@ -5,41 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
+import PlayButtonContainer from '../play_button/play_button_container';
 
 class SongShow extends React.Component {
     componentDidMount() {
         this.props.fetchSong(this.props.song.id);
         window.scrollTo(0, 0);
-        this.handlePlay = this.handlePlay.bind(this);
         this.myRef = React.createRef();
 
     }
     constructor(props){
         super(props);
-        this.state = {
-            ...this.props.song,
-            playing: this.props.playing,
-            show: this.props.show,
-        }
+        this.state =this.props.song
+        
         this.display = this.display.bind(this);
     };
-
-    handlePlay() {
-        const audioEl = this.myRef.current;
-        console.log(audioEl);
-        if (this.state.playing){
-            audioEl.pause();
-            this.setState({ playing: false })
-            this.props.pauseSong();
-        } else {
-            audioEl.play();
-            this.setState({ playing: true })
-            this.setState({ show: true })
-            this.props.playSong()
-        };
-    };
-
-    
 
     display() {
         return(
@@ -48,7 +28,7 @@ class SongShow extends React.Component {
                 <NavBarContainer /> 
                 <div className="show-context">
                     <h1>hello</h1>
-                    <FontAwesomeIcon className="song-show-play" icon={this.state.playing? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
+                    <PlayButtonContainer className="song-show-play" song={this.props.song} />
                     <div className="song-show-content-title-uploader">
                         <h1 className="song-show-title">{this.state.title}</h1>
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
@@ -66,9 +46,7 @@ class SongShow extends React.Component {
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
 
-                {
-                    this.state.show ? <PlayContainer song={this.props.song}/> :  null 
-                }
+                <PlayContainer song={this.props.song}/>
                 <h1>hello</h1>
                 <h1>hello</h1>
                 <h1>hello</h1>
@@ -80,7 +58,7 @@ class SongShow extends React.Component {
                 <NavBarContainer /> 
                 <div className="show-context">
                     <h1>hello</h1>
-                    <FontAwesomeIcon className="song-show-play" icon={this.state.playing? faPause : faPlay} onClick={this.handlePlay}></FontAwesomeIcon>
+                    <PlayButtonContainer className="song-show-play" song={this.props.song} />
                     <div className="song-show-content-title-uploader">
                         <h1 className="song-show-title">{this.state.title}</h1>
                         <p className="song-show-date">{this.state.createdAt.includes("about") ? this.state.createdAt.slice(6) : this.state.createdAt} ago</p>
@@ -95,9 +73,7 @@ class SongShow extends React.Component {
                         src={this.props.song.songFile}
                     ></audio>
                 </div>
-                {
-                    this.state.show ? <PlayContainer song={this.props.song}/> : null 
-                }
+                <PlayContainer song={this.props.song}/>
                 <h1>hello</h1>
                 <h1>hello</h1>
                 <h1>hello</h1>

@@ -1,24 +1,22 @@
-import { RECEIVE_SONG, REMOVE_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/play_actions';
+import { RECEIVE_CURRENT_SONG, REMOVE_SONG, PLAY_SONG, PAUSE_SONG } from '../actions/play_actions';
 
 const defaultState = {
     currentSong: null,
     playing: false,
-    show: false,
 };
 
 const playReducer = (oldState=defaultState, action) => {
     Object.freeze(oldState);
     const nextState = Object.assign({}, oldState);
     switch (action.type) {
-        case RECEIVE_SONG:
+        case RECEIVE_CURRENT_SONG:
             nextState["currentSong"] = action.song;
-            nextState["playing"] = false;
+            nextState["playing"] = true;
             return nextState;
         case REMOVE_SONG:
             return oldState;
         case PLAY_SONG:
             nextState["playing"] = true;
-            nextState["show"] = true;
             return nextState;
         case PAUSE_SONG:
             nextState["playing"] = false;
