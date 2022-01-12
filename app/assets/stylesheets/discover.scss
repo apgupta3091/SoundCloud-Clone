@@ -29,18 +29,8 @@
     margin-top: -10px;
 }
 
-.song-discover-play{
-    height:30px;
-    width: 30px;
-    position: relative;
-    color:white;
-    padding:15px;
-    border:0;
-    background-color: #f50;
-    border-radius: 50%;
-    z-index:200;
-    top:-120px;
-    left:60px;
+.song-button-container{
+    
 }
 
 .song-discover-play:hover{
@@ -64,4 +54,20 @@
 
 .update-p{
     margin-top:-600px;
+}
+
+.play-button-discover{
+    cursor: pointer;
+    padding:10px;
+    background:#f50;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.play-button-icon-discover{
+    color: white;
+
+    height: 30px; 
+    width: 30px;
 }

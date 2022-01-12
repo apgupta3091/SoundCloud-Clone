@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import SongShow from './song_show';
 import { logout } from '../../actions/session_actions';
 import { fetchSong, deleteSong } from '../../actions/song_actions';
-import { receiveSong, removeSong, playSong, pauseSong } from '../../actions/play_actions';
 
 const mSTP = (state, ownProps) => ({
     song: state.entities.songs[ownProps.match.params.songId],

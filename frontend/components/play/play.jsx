@@ -9,6 +9,7 @@ class Play extends React.Component {
         this.state = {
             startTime: 0,
             volume: 0.5,
+            currentTime: 0,
         }
         this.play = this.play.bind(this);
         this.pause = this.pause.bind(this);
@@ -25,6 +26,7 @@ class Play extends React.Component {
             let audioEl = document.getElementById("audio-el");
             audioEl.play();
             this.updateTimer();
+            
         } if (this.props.currentSong) {
             const progressBar = document.getElementById('progress-bar')
             this.getDuration(this.props.song.songFile, (length) => {
@@ -119,7 +121,8 @@ class Play extends React.Component {
                             min="0"
                             defaultValue="0"
                             onChange={ e => {
-                                audioEl.currentTime = e.target.value;
+                                this.setState({currentTime: e.target.value })
+                                audioEl.currentTime = this.state.currentTime
                             }}
                         />
                     </div>

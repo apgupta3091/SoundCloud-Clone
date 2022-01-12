@@ -16,7 +16,7 @@ class SongShow extends React.Component {
     }
     constructor(props){
         super(props);
-        this.state =this.props.song
+        this.state =this.props.song,
         
         this.display = this.display.bind(this);
     };

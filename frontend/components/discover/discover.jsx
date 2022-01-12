@@ -2,11 +2,8 @@ import React from "react";
 import Footer from '../footer/footer';
 import NavBarContainer from '../navbar/navbar_container';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import { faThemeisle } from "@fortawesome/free-brands-svg-icons";
-import PlayContainer from '../play/play_container';
-import Play from "../play/play";
+import PlayButtonContainer from '../play_button/play_button_container';
+import PlayContainer from "../play/play_container";
 
 
 class Discover extends React.Component {
@@ -31,8 +28,6 @@ class Discover extends React.Component {
             newSongs.push(reverseSongs[i]);
         };
 
-       
-
         return(
             <div>
                 <NavBarContainer />
@@ -48,11 +43,11 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto} ></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play hidden" id="list1" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -68,11 +63,11 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -88,11 +83,11 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -108,11 +103,11 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -128,17 +123,18 @@ class Discover extends React.Component {
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play hidden" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
                         }
                     </ul>
                 </div>
+                <PlayContainer song={this.props.song}/>
                 <Footer />
 
             </div>
