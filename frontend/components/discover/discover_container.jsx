@@ -7,6 +7,8 @@ import { logout } from '../../actions/session_actions';
 const mSTP = (state, ownProps) => ({
     songs: Object.values(state.entities.songs),
     currentUser: state.entities.users[state.session.id],
+    currentSong: state.ui.play.currentSong,
+    playing: state.ui.play.playing,
 });
 
 const mDTP = dispatch => ({

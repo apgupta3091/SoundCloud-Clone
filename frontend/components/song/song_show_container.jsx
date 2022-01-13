@@ -9,12 +9,14 @@ const mSTP = (state, ownProps) => ({
     songId: ownProps.match.params.songId,
     currentUser: state.entities.users[state.session.id],
     currentUserId: state.session.id,
+
 });
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
     fetchSong: songId => dispatch(fetchSong(songId)),
-    deleteSong: songId => dispatch(deleteSong(songId))
+    deleteSong: songId => dispatch(deleteSong(songId)),
+
 });
 
 export default connect(mSTP, mDTP)(SongShow);

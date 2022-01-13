@@ -29,19 +29,7 @@
     margin-top: -10px;
 }
 
-.song-discover-play{
-    height:30px;
-    width: 30px;
-    position: relative;
-    color:white;
-    padding:15px;
-    border:0;
-    background-color: #f50;
-    border-radius: 50%;
-    z-index:200;
-    top:-120px;
-    left:60px;
-}
+
 
 .song-discover-play:hover{
     background-color: rgb(255, 51, 0);
@@ -64,4 +52,36 @@
 
 .update-p{
     margin-top:-600px;
+}
+
+.play-button-discover{
+    display: none;
+}
+
+.play-button-icon-discover{
+    color: white;
+
+    height: 40px; 
+    width: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.song-span:hover .play-button-discover{
+    display: block;
+    cursor: pointer;
+    padding:10px;
+    background:#f50;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top:60px;
+    left:60px;
+    
+
+}
+
+.song-span{
+    position: relative;
 }

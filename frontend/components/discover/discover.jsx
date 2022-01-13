@@ -2,21 +2,19 @@ import React from "react";
 import Footer from '../footer/footer';
 import NavBarContainer from '../navbar/navbar_container';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import { faThemeisle } from "@fortawesome/free-brands-svg-icons";
+import PlayButtonContainer from '../play_button/play_button_container';
+import PlayContainer from "../play/play_container";
 
 
 class Discover extends React.Component {
     constructor(props){
         super(props);
-       
+
     };
 
     componentDidMount(){
         setTimeout(() => this.props.fetchSongs(), 2000);
     };
-
 
     render(){
         const { songs } =  this.props;
@@ -41,55 +39,55 @@ class Discover extends React.Component {
                         {
                             songs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
-                                        <li >
+                                        <li>
                                             <img className="song-cover-photo" src={song.coverPhoto} ></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
                         }
                     </ul>
-                    <h1 className="discover-h1">Charts: New & hot</h1>
+                    {/* <h1 className="discover-h1">Charts: New & hot</h1>
                     <p className="discover-p">Top 10 newest songs on SoundWave</p>
                      <ul className="songs-list discover-song-list">
-                        {
+                        {  
                             newSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
                         }
-                    </ul>
+                    </ul> */}
                     <h1 className="discover-h1">EDM</h1>
                     <p className="discover-p">The latest and hottest EDM</p>
                     <ul className="songs-list discover-song-list">
                         {
                             edmSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -101,15 +99,15 @@ class Discover extends React.Component {
                         {
                             hiphopSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
@@ -121,21 +119,22 @@ class Discover extends React.Component {
                         {
                             popSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                            {/* <FontAwesomeIcon className="song-discover-play" icon={faPlay}></FontAwesomeIcon> */}
                                         </li>
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
 
                                 </span>): null
                             ))
                         }
                     </ul>
                 </div>
+                {/* <PlayContainer song={this.props.song}/> */}
                 <Footer />
 
             </div>
