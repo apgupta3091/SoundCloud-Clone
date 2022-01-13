@@ -29,9 +29,7 @@
     margin-top: -10px;
 }
 
-.song-button-container{
-    
-}
+
 
 .song-discover-play:hover{
     background-color: rgb(255, 51, 0);
@@ -57,17 +55,33 @@
 }
 
 .play-button-discover{
-    cursor: pointer;
-    padding:10px;
-    background:#f50;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    display: none;
 }
 
 .play-button-icon-discover{
     color: white;
 
-    height: 30px; 
-    width: 30px;
+    height: 40px; 
+    width: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.song-span:hover .play-button-discover{
+    display: block;
+    cursor: pointer;
+    padding:10px;
+    background:#f50;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top:60px;
+    left:60px;
+    
+
+}
+
+.song-span{
+    position: relative;
 }

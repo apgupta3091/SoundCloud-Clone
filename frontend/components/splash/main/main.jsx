@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlayButtonContainer from '../../play_button/play_button_container';
 
 class Main extends React.Component {
     constructor(props){
@@ -38,7 +39,7 @@ class Main extends React.Component {
                         {
                             splashSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
@@ -46,7 +47,7 @@ class Main extends React.Component {
                                         <p className="song-title">{song.title}</p>
                                         <p className="song-artist">{song.artist.username}</p>
                                     </Link>
-
+                                     <PlayButtonContainer songs={songs} song={song} />
                                 </span>): null
                             ))
                         }

@@ -50,9 +50,9 @@ const PlayButton = ({ currentSong, playing, receiveCurrentSong, playSong, pauseS
 
 
     return (
-        <div>
+        <>
             {display}
-        </div>
+        </>
     );
 }
 

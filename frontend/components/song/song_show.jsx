@@ -73,7 +73,7 @@ class SongShow extends React.Component {
                         src={this.props.song.songFile}
                     ></audio>
                 </div>
-                <PlayContainer song={this.props.song}/>
+                {/* <PlayContainer song={this.props.song}/> */}
                 <h1>hello</h1>
                 <h1>hello</h1>
                 <h1>hello</h1>

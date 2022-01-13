@@ -29,7 +29,7 @@ class Play extends React.Component {
             
         } if (this.props.currentSong) {
             const progressBar = document.getElementById('progress-bar')
-            this.getDuration(this.props.song.songFile, (length) => {
+            this.getDuration( this.props.song ? this.props.song.songFile : this.props.currentSong.songFile, (length) => {
              let newLength = this.formatDuration(length)
              document.getElementById('duration').textContent= newLength;
              progressBar.max = newLength;
@@ -40,19 +40,20 @@ class Play extends React.Component {
             audioEl.pause();
             }
         }
-        
+    }
+
+    componentWillUnmount(){
+        this.props.removeSong();
     }
 
     play(){
         let audioEl = document.getElementById('audio-el');
-        console.log(audioEl)
         this.props.playSong();
         audioEl.play();
     };
     
     pause(){
         let audioEl = document.getElementById('audio-el');
-        console.log(audioEl)
         this.props.pauseSong();
     };
 
@@ -141,12 +142,12 @@ class Play extends React.Component {
                     <audio
                         id="audio-el"
                         onTimeUpdate={this.progressBarValue}
-                        src={this.props.song.songFile}
+                        src={this.props.song ? this.props.song.songFile : this.props.currentSong.songFile}
                     ></audio>
-                    <img className="playbar-song-cover" src={this.props.song.coverPhoto}></img>
+                    <img className="playbar-song-cover" src={this.props.song ? this.props.song.coverPhoto : this.props.currentSong.coverPhoto}></img>
                     <div className="playbar-p-flex">
-                        <p className="playbar-p">{this.props.song.artist.username}</p>
-                        <p className="playbar-p">{this.props.song.title}</p>
+                        <p className="playbar-p">{this.props.song ? this.props.song.artist.username : this.props.currentSong.artist.username}</p>
+                        <p className="playbar-p">{this.props.song ? this.props.song.title : this.props.currentSong.title}</p>
                     </div>
                 </div>
         );

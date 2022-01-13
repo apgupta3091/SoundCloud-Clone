@@ -39,7 +39,7 @@ class Discover extends React.Component {
                         {
                             songs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto} ></img>
@@ -59,7 +59,7 @@ class Discover extends React.Component {
                         {
                             newSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
@@ -79,7 +79,7 @@ class Discover extends React.Component {
                         {
                             edmSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
@@ -99,7 +99,7 @@ class Discover extends React.Component {
                         {
                             hiphopSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
@@ -119,7 +119,7 @@ class Discover extends React.Component {
                         {
                             popSongs.map(song => (
                                 song ?
-                                (<span key={song.id}>
+                                (<span key={song.id} className="song-span">
                                     <Link className="song-links" to={`/songs/${song.id}`}>
                                         <li>
                                             <img className="song-cover-photo" src={song.coverPhoto}></img>
@@ -134,7 +134,7 @@ class Discover extends React.Component {
                         }
                     </ul>
                 </div>
-                <PlayContainer song={this.props.song}/>
+                {/* <PlayContainer song={this.props.song}/> */}
                 <Footer />
 
             </div>
