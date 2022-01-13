@@ -53,26 +53,7 @@ class Discover extends React.Component {
                             ))
                         }
                     </ul>
-                    {/* <h1 className="discover-h1">Charts: New & hot</h1>
-                    <p className="discover-p">Top 10 newest songs on SoundWave</p>
-                     <ul className="songs-list discover-song-list">
-                        {  
-                            newSongs.map(song => (
-                                song ?
-                                (<span key={song.id} className="song-span">
-                                    <Link className="song-links" to={`/songs/${song.id}`}>
-                                        <li>
-                                            <img className="song-cover-photo" src={song.coverPhoto}></img>
-                                        </li>
-                                        <p className="song-title">{song.title}</p>
-                                        <p className="song-artist">{song.artist.username}</p>
-                                    </Link>
-                                    <PlayButtonContainer songs={songs} song={song} />
-
-                                </span>): null
-                            ))
-                        }
-                    </ul> */}
+                  
                     <h1 className="discover-h1">EDM</h1>
                     <p className="discover-p">The latest and hottest EDM</p>
                     <ul className="songs-list discover-song-list">
