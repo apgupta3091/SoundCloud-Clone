@@ -53,10 +53,10 @@ class Discover extends React.Component {
                             ))
                         }
                     </ul>
-                    <h1 className="discover-h1">Charts: New & hot</h1>
+                    {/* <h1 className="discover-h1">Charts: New & hot</h1>
                     <p className="discover-p">Top 10 newest songs on SoundWave</p>
                      <ul className="songs-list discover-song-list">
-                        {
+                        {  
                             newSongs.map(song => (
                                 song ?
                                 (<span key={song.id} className="song-span">
@@ -72,7 +72,7 @@ class Discover extends React.Component {
                                 </span>): null
                             ))
                         }
-                    </ul>
+                    </ul> */}
                     <h1 className="discover-h1">EDM</h1>
                     <p className="discover-p">The latest and hottest EDM</p>
                     <ul className="songs-list discover-song-list">
