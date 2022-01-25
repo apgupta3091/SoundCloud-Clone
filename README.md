@@ -1,24 +1,40 @@
-# README
+# SoundWave
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## BACKGROUND:
 
-Things you may want to cover:
+[Soundwave](https://soundwave-aa.herokuapp.com/#/)
+is a clone of SoundCloud. A music streaming app which allows users to stream their favorite songs as well as upload their own music to the platform.
 
-* Ruby version
+<img width="1437" alt="Screen Shot 2022-01-25 at 4 16 29 PM" src="https://user-images.githubusercontent.com/53449807/151061159-d5fadbe8-b584-4bb0-8225-48ec2e998b67.png">
 
-* System dependencies
+-----------------------------------------------------------------------------
 
-* Configuration
+## TECHNOLOGIES, LIBRARIES, API'S:
 
-* Database creation
+- Ruby
+- Rails
+- React
+- Redux
+- Postgresql
+- AWS / S3
 
-* Database initialization
+-----------------------------------------------------------------------------
+## FEATURES
 
-* How to run the test suite
+### Splash/User Auth
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Song CRUD
 
-* ...
+
+### Continous Play Bar
+
+
+
+
+-----------------------------------------------------------------------------
+
+## FUTURE FEATURES:
+
+- dropdown selection for the Avg salary which updates the map accordingly
+- dropwdown selection for the # of jobs requiring JS which updates the map accordingly
