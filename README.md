@@ -54,16 +54,47 @@ const mDTP = (dispatch, ownProps) => ({
 ### Song CRUD
 <img width="626" alt="Screen Shot 2022-01-25 at 4 18 42 PM" src="https://user-images.githubusercontent.com/53449807/151061630-4408d9ca-38d7-45ac-974e-90dc78ba55ce.png">
 
+```
+def create
+    @song = Song.new(song_create_params)
+    @song.artist_id = current_user.id 
+    if @song.save
+        render :show 
+    else
+        render json: @song.errors.full_messages
+    end
+end
+```
+
 <img width="623" alt="Screen Shot 2022-01-25 at 4 19 02 PM" src="https://user-images.githubusercontent.com/53449807/151061644-bd57318d-4e68-4321-8630-7adcf52fbdbc.png">
 
+```
+def update 
+    @song = Song.find_by(id: params[:song][:id])
+    if @song.update(song_update_params)
+        render :show 
+    else
+        render json: @song.errors.full_messages 
+    end
+end
+```
+
 <img width="1437" alt="Screen Shot 2022-01-25 at 4 19 22 PM" src="https://user-images.githubusercontent.com/53449807/151061651-abab67a2-f7bb-47ef-abd4-f2e87ee512c7.png">
+
+
 
 
 ### Continous Play Bar
 
 <img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
 
-
+```
+def destroy 
+    @song = Song.find_by(id: params[:id])
+    @song.destroy
+    render json: {}
+end
+```
 
 
 -----------------------------------------------------------------------------
