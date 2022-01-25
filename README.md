@@ -136,7 +136,7 @@ const mDTP = (dispatch) => ({
     removeSong: () => dispatch(removeSong()),
 });
 ```
-
+-----------------------------------
 
 ### Future Features
 - Comments
