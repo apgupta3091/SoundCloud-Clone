@@ -49,7 +49,7 @@ class Play extends React.Component {
     play(){
         let audioEl = document.getElementById('audio-el');
         this.props.playSong();
-        audioEl.play();
+        
     };
     
     pause(){
