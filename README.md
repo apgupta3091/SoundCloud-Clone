@@ -23,6 +23,7 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 ### Splash/User Auth
 <img width="452" alt="Screen Shot 2022-01-25 at 4 17 42 PM" src="https://user-images.githubusercontent.com/53449807/151061370-bf4f8b7b-1c25-4ffd-8ac5-f0f2be02f8b8.png">
+
 ```
 const mSTP = (state, ownProps) => ({
     errors: state.errors.session,
@@ -35,7 +36,9 @@ const mDTP = (dispatch, ownProps) => ({
    
 });
 ```
+
 <img width="450" alt="Screen Shot 2022-01-25 at 4 17 51 PM" src="https://user-images.githubusercontent.com/53449807/151061376-d6fb1038-0695-4db4-8060-b4bd7949bb24.png">
+
 ```
 const mSTP = (state, ownProps) => ({
     errors: state.errors.session,
