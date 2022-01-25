@@ -23,8 +23,30 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 ### Splash/User Auth
 <img width="452" alt="Screen Shot 2022-01-25 at 4 17 42 PM" src="https://user-images.githubusercontent.com/53449807/151061370-bf4f8b7b-1c25-4ffd-8ac5-f0f2be02f8b8.png">
-<img width="450" alt="Screen Shot 2022-01-25 at 4 17 51 PM" src="https://user-images.githubusercontent.com/53449807/151061376-d6fb1038-0695-4db4-8060-b4bd7949bb24.png">
+```
+const mSTP = (state, ownProps) => ({
+    errors: state.errors.session,
+    formType: 'Sign in',
+});
 
+const mDTP = (dispatch, ownProps) => ({
+    processForm: formUser => dispatch(login(formUser)),
+    loginGuest: guest => dispatch(login(guest)),
+   
+});
+```
+<img width="450" alt="Screen Shot 2022-01-25 at 4 17 51 PM" src="https://user-images.githubusercontent.com/53449807/151061376-d6fb1038-0695-4db4-8060-b4bd7949bb24.png">
+```
+const mSTP = (state, ownProps) => ({
+    errors: state.errors.session,
+    formType: 'Create account',
+});
+
+const mDTP = (dispatch, ownProps) => ({
+    processForm: formUser => dispatch(signup(formUser)),
+    loginGuest: guest => dispatch(login(guest)),
+});
+```
 
 ### Song CRUD
 <img width="626" alt="Screen Shot 2022-01-25 at 4 18 42 PM" src="https://user-images.githubusercontent.com/53449807/151061630-4408d9ca-38d7-45ac-974e-90dc78ba55ce.png">
