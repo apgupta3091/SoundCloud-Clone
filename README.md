@@ -36,7 +36,8 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 ### Continous Play Bar
 
-<img width="1437" alt="Screen Shot 2022-01-25 at 4 19 22 PM" src="https://user-images.githubusercontent.com/53449807/151061773-d777ac16-f7a0-4f49-bcbd-5382d2fd2068.png">
+<img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
+
 
 
 
