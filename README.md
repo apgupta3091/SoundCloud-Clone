@@ -81,13 +81,6 @@ end
 
 <img width="1437" alt="Screen Shot 2022-01-25 at 4 19 22 PM" src="https://user-images.githubusercontent.com/53449807/151061651-abab67a2-f7bb-47ef-abd4-f2e87ee512c7.png">
 
-
-
-
-### Continous Play Bar
-
-<img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
-
 ```
 def destroy 
     @song = Song.find_by(id: params[:id])
@@ -95,6 +88,26 @@ def destroy
     render json: {}
 end
 ```
+
+
+### Continous Play Bar
+
+<img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
+
+```
+const mSTP = state => ({
+    currentSong: state.ui.play.currentSong,
+    playing: state.ui.play.playing,
+});
+
+const mDTP = (dispatch) => ({
+    receiveCurrentSong: song => dispatch(receiveCurrentSong(song)),
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong()),
+    removeSong: () => dispatch(removeSong()),
+});
+```
+
 
 
 -----------------------------------------------------------------------------
