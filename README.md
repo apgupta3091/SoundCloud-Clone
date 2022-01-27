@@ -16,7 +16,8 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 - React
 - Redux
 - Postgresql
-- AWS / S3
+- AWS 
+- S3
 
 -----------------------------------------------------------------------------
 ## FEATURES
