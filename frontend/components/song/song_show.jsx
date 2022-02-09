@@ -47,10 +47,7 @@ class SongShow extends React.Component {
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
 
                 <PlayContainer song={this.props.song}/>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
+           
                 <Footer />
             </div>
             ) : (
@@ -74,10 +71,7 @@ class SongShow extends React.Component {
                     ></audio>
                 </div>
                 {/* <PlayContainer song={this.props.song}/> */}
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
+                
                 <Footer />
             </div>
             )

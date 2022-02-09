@@ -12,6 +12,10 @@ class User < ApplicationRecord
     foreign_key: :artist_id,
     class_name: :Song 
 
+    has_many :comments,
+    primary_key: :id,
+    foreign_key: :commenter_id,
+    class_name: :Comment
 
 
     has_one_attached :profile_pic

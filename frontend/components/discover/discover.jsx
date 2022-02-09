@@ -27,11 +27,35 @@ class Discover extends React.Component {
         for (let i = 0; i < 10; i++){
             newSongs.push(reverseSongs[i]);
         };
+        let mySongs = songs.filter(song => song.artist.id === this.props.currentUser.id)
+        console.log(mySongs);
 
         return(
             <div>
                 <NavBarContainer />
                 <h1>hello</h1>
+                <h1 className="discover-h1">My Songs</h1>
+                    <p className="discover-p">Every song you've dropped on SoundWave</p>
+                     <ul className="songs-list discover-song-list">
+                        {
+                            mySongs.length === 0?
+                            null:
+                            mySongs.map(song => (
+                                song ?
+                                (<span key={song.id} className="song-span">
+                                    <Link className="song-links" to={`/songs/${song.id}`}>
+                                        <li>
+                                            <img className="song-cover-photo" src={song.coverPhoto} ></img>
+                                        </li>
+                                        <p className="song-title">{song.title}</p>
+                                        <p className="song-artist">{song.artist.username}</p>
+                                    </Link>
+                                    <PlayButtonContainer songs={songs} song={song} />
+
+                                </span>): null
+                            ))
+                        }
+                    </ul>
                 <div>
                     <h1 className="discover-h1">All Songs</h1>
                     <p className="discover-p">Every song available on SoundWave</p>

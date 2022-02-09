@@ -8,7 +8,7 @@ const Footer = () => {
         <footer>
             <a  href='https://github.com/apgupta3091' target="_blank"><FontAwesomeIcon className="icon-links" icon={faGithub}></FontAwesomeIcon></a>
             <a href="https://www.linkedin.com/in/anujgupta19/" target="_blank"><FontAwesomeIcon className="icon-links" icon={faLinkedin}></FontAwesomeIcon></a>
-            <a  href="#" target="_blank"><FontAwesomeIcon className="icon-links" icon={faAngellist}></FontAwesomeIcon></a>
+            <a  href="https://angel.co/u/anuj-gupta-174" target="_blank"><FontAwesomeIcon className="icon-links" icon={faAngellist}></FontAwesomeIcon></a>
             
         </footer>
     );

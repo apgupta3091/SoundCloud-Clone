@@ -78,7 +78,9 @@ class SessionForm extends React.Component {
                 
                 <ul className="errors-splash-form">
                     {
-                        this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
+                        this.props.errors?
+                        this.props.errors.map((error, idx) => <li key={idx}>{error}</li>):
+                        null
                     }
                 </ul>
                 <form>
