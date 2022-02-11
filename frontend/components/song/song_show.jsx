@@ -43,22 +43,22 @@ class SongShow extends React.Component {
                         ref={this.myRef}
                         src={this.props.song.songFile}
                     ></audio>
+
+                    <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
+                    <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
                 </div>
-                <div>
+               <div>
                     <CommentFormContainer commentSongId={this.props.songId}/>
                 </div>
+                <div className='breakpoint'></div>
 
-                <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
-                <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
-
-                {/* <PlayContainer song={this.props.song}/> */}
-                <div>
-                    <div >
+                <div className='song-show-comment-below-container'>
+                    <div className='song-show-comment-profile-container'>
                         <img className='song-show-user-profile-pic' src={this.props.song.artist.profilePic} />
-                        <div >{this.props.song.artist.username}</div>
+                        <div className='song-show-user-username'>{this.props.song.artist.username}</div>
                     </div>
                     <CommentContainer currentUser={this.props.currentUser}/>
-                </div>
+                </div>                
            
                 <Footer />
             </div>
@@ -85,17 +85,15 @@ class SongShow extends React.Component {
                 <div>
                     <CommentFormContainer commentSongId={this.props.songId}/>
                 </div>
+                <div className='breakpoint'></div>
 
-                <div>
-                    <div >
-                        <img className='song-show-user-profile-pic' src={this.props.song.artist.profilePic}  />
-                        <div >{this.props.song.artist.username}</div>
+                <div className='song-show-comment-below-container'>
+                    <div className='song-show-comment-profile-container'>
+                        <img className='song-show-user-profile-pic' src={this.props.song.artist.profilePic} />
+                        <div className='song-show-user-username'>{this.props.song.artist.username}</div>
                     </div>
                     <CommentContainer currentUser={this.props.currentUser}/>
-                </div>
-
-                {/* <PlayContainer song={this.props.song}/> */}
-                
+                </div>                
                 <Footer />
             </div>
             )

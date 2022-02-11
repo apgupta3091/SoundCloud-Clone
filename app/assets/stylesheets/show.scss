@@ -68,6 +68,7 @@
     border:1px solid #f50;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 230px;
 }
 
 #show-delete-btn{
@@ -78,6 +79,8 @@
     border: 1px solid #333;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 230px;
+    margin-left: 5px;
 }
 
 #show-delete-btn:hover{
@@ -88,3 +91,9 @@
     background-color: rgb(255, 34, 5);
 }
 
+
+.breakpoint{
+    border:.65px solid #cccbcb;
+    width: 68.3%;
+    margin: 30px;
+}
