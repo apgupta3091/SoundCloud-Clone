@@ -4,6 +4,6 @@ json.commenter do
     if comment.commenter.profile_pic.attached?
         json.profilePic url_for(comment.commenter.profile_pic)
     else
-        json.profilePic ''
+        json.profilePic 'https://soundwave-seeds.s3.amazonaws.com/images/saber.jpg'
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_220602) do
+ActiveRecord::Schema.define(version: 2022_02_11_000837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_220602) do
     t.integer "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["commenter_id"], name: "index_comments_on_commenter_id", unique: true
-    t.index ["song_id"], name: "index_comments_on_song_id", unique: true
+    t.index ["commenter_id"], name: "index_comments_on_commenter_id"
+    t.index ["song_id"], name: "index_comments_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|

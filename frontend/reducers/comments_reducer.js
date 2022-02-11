@@ -11,7 +11,7 @@ const commentsReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_SONG:
-            if (action.track.comments) {
+            if (action.song.comments) {
                 return action.song.comments
             } else {
                 return {}

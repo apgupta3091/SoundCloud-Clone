@@ -1,11 +1,13 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
-import PlayContainer from '../play/play_container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
+// import PlayContainer from '../play/play_container';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
 import PlayButtonContainer from '../play_button/play_button_container';
+import CommentFormContainer from '../comments/comment_form_container';
+import CommentContainer from '../comments/comment_container';
 
 class SongShow extends React.Component {
     componentDidMount() {
@@ -20,7 +22,6 @@ class SongShow extends React.Component {
         
         this.display = this.display.bind(this);
     };
-
     display() {
         return(
             this.props.song.artist.id === this.props.currentUserId ? (
@@ -43,10 +44,21 @@ class SongShow extends React.Component {
                         src={this.props.song.songFile}
                     ></audio>
                 </div>
+                <div>
+                    <CommentFormContainer commentSongId={this.props.songId}/>
+                </div>
+
                 <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                 <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
 
-                <PlayContainer song={this.props.song}/>
+                {/* <PlayContainer song={this.props.song}/> */}
+                <div>
+                    <div >
+                        <img className='song-show-user-profile-pic' src={this.props.song.artist.profilePic} />
+                        <div >{this.props.song.artist.username}</div>
+                    </div>
+                    <CommentContainer currentUser={this.props.currentUser}/>
+                </div>
            
                 <Footer />
             </div>
@@ -70,6 +82,18 @@ class SongShow extends React.Component {
                         src={this.props.song.songFile}
                     ></audio>
                 </div>
+                <div>
+                    <CommentFormContainer commentSongId={this.props.songId}/>
+                </div>
+
+                <div>
+                    <div >
+                        <img className='song-show-user-profile-pic' src={this.props.song.artist.profilePic}  />
+                        <div >{this.props.song.artist.username}</div>
+                    </div>
+                    <CommentContainer currentUser={this.props.currentUser}/>
+                </div>
+
                 {/* <PlayContainer song={this.props.song}/> */}
                 
                 <Footer />
