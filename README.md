@@ -9,15 +9,6 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 -----------------------------------------------------------------------------
 
-## ABOUT:
-
-[Soundwave](https://soundwave-aa.herokuapp.com/#/)
-
-
-- is a pixel perfect clone of SoundCloud creating using the tech stack below. I created this project because I am an avid user of SoundCloud and I was fascinated to be able to build a live website which many users use daily. I hope you enjoy and feel free to add music and listen to your favoritie tunes on the site!
-
-
------------------------------------------------------------------------------
 
 ## TECHNOLOGIES, LIBRARIES, API'S:
 
