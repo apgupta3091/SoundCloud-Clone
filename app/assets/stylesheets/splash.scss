@@ -96,11 +96,12 @@
 }
 
 footer {
-    margin-top: 50px;
+    margin-top: 70px;
     text-align:center;
     border-top: 1px solid rgb(231, 229, 229);
     padding-top: 20px;
     padding-bottom: 10px;
+    margin-bottom: 30px;
 
 }
 
@@ -197,6 +198,7 @@ footer {
     pointer-events: all;
 }
 
+
 footer a {
     pointer-events: all;
     cursor: pointer;
@@ -268,4 +270,5 @@ footer a {
     list-style: none;
     font-size:18px;
     margin-right:30px;
+    color: red;
 }

@@ -112,7 +112,7 @@ class SongForm extends React.Component {
                     <h1>{formType}</h1>
                     <ul className="errors-ul">
                     {   
-                        errors.length === 0 ? "" : errors.map((error, i) => <li className="errors" key={i}>{error}</li>)
+                        errors.length === 0 ? "" : errors.map((error, i) => <li className="errors" key={i}>{`*${error}`}</li>)
                     }
                     </ul>
                     <form className="upload-song-form-form" onSubmit={this.handleSubmit}>
