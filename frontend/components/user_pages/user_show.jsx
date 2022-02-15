@@ -37,7 +37,6 @@ class UserShow extends React.Component {
         const { currentUserId, user, userId, songs } = this.props;
 
         const userSongs = songs.filter(song => song.artist.id === this.props.user.id)
-        console.log(userSongs)
         const updateProfPicBtn = currentUserId === user.id ? (
             <Link to={`/edit/${currentUserId}`}><button className="update-prof-pic-btn" >
                 <FontAwesomeIcon icon={faCameraRetro} /> Update Profile Pic

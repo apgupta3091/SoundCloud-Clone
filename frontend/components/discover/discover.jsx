@@ -28,7 +28,6 @@ class Discover extends React.Component {
             newSongs.push(reverseSongs[i]);
         };
         let mySongs = songs.filter(song => song.artist.id === this.props.currentUser.id)
-        console.log(mySongs);
 
         return(
             <div>
