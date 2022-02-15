@@ -1,8 +1,5 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
-// import PlayContainer from '../play/play_container';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import Footer from '../footer/footer';
 import PlayButtonContainer from '../play_button/play_button_container';
@@ -47,9 +44,14 @@ class SongShow extends React.Component {
                     <Link to={`/update/${this.state.id}`}><button id="show-edit-btn">Edit Song</button></Link>
                     <Link to="/discover"><button id="show-delete-btn" onClick={() => this.props.deleteSong(this.props.songId)}>Delete Song</button></Link>
                 </div>
-               <div>
-                    <CommentFormContainer commentSongId={this.props.songId}/>
+               {
+                    this.props.currentUser?
+                <div>
+                    <CommentFormContainer currentUser={this.props.currentUser} commentSongId={this.props.songId}/>
                 </div>
+                :
+                null
+                }
                 <div className='breakpoint'></div>
 
                 <div className='song-show-comment-below-container'>
@@ -82,9 +84,14 @@ class SongShow extends React.Component {
                         src={this.props.song.songFile}
                     ></audio>
                 </div>
+                {
+                    this.props.currentUser?
                 <div>
-                    <CommentFormContainer commentSongId={this.props.songId}/>
+                    <CommentFormContainer currentUser={this.props.currentUser} commentSongId={this.props.songId}/>
                 </div>
+                :
+                null
+                }
                 <div className='breakpoint'></div>
 
                 <div className='song-show-comment-below-container'>

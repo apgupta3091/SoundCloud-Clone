@@ -10,7 +10,7 @@ json.comments do
                 if comment.commenter.profile_pic.attached?
                     json.profilePic url_for(comment.commenter.profile_pic)
                 else
-                    json.profilePic 'https://soundwave-seeds.s3.amazonaws.com/images/saber.jpg'
+                    json.profilePic 'https://soundwave-seeds.s3.amazonaws.com/images/black+default+profile+picture.jpeg'
                 end
                 json.extract! comment.commenter, :id, :username
             end
@@ -25,7 +25,7 @@ json.artist do
     if song.artist.profile_pic.attached?
         json.profilePic url_for(song.artist.profile_pic)
     else
-        json.profilePic 'https://soundwave-seeds.s3.amazonaws.com/images/saber.jpg'
+        json.profilePic 'https://soundwave-seeds.s3.amazonaws.com/images/black+default+profile+picture.jpeg'
     end
 end
 

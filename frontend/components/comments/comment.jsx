@@ -28,8 +28,9 @@ class Comment extends React.Component {
 
                                     <div className="comment-bottom-container">
                                         <div className="created-at" >{comment.commentCreatedTime && comment.commentCreatedTime.includes("about") ? comment.commentCreatedTime.slice(6) : comment.commentCreatedTime}</div>
-
+                                    
                                     {
+                                        this.props.currentUser?
                                         currentUser.id === comment.commenter.id ? (
                                             <button 
                                                 className="delete-comment-btn"
@@ -37,6 +38,8 @@ class Comment extends React.Component {
                                                 <FontAwesomeIcon icon={faTrashAlt} />
                                             </button>
                                         ) : null
+                                        :
+                                        null
                                     }
                                     </div>
                                     

@@ -7,6 +7,8 @@ import DiscoverContainer from './discover/discover_container';
 import UpdateSongContainer from './upload/update_song_container';
 import CreateSongContainer from './upload/create_song_container';
 import PlayerContainer from './play/play_container';
+import UserShowContainer from "./user_pages/user_show_container";
+import EditUserContainer from './user_pages/edit_user_container'
 
 
 
@@ -24,6 +26,8 @@ const App = () => (
     <LogRoute exact path='/discover' component={DiscoverContainer} />
     <LogRoute exact path='/upload' component={CreateSongContainer} />
     <LogRoute exact path='/update/:songId' component={UpdateSongContainer} />
+    <LogRoute exact path='/edit/:userId' component={EditUserContainer} />
+    <LogRoute exact path="/users/:userId" component={UserShowContainer} />
     <PlayerContainer />
     
   </div>

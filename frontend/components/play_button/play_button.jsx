@@ -2,10 +2,32 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
-const PlayButton = ({ currentSong, playing, receiveCurrentSong, playSong, pauseSong, song, songs }) => {
+const PlayButton = ({ currentSong, playing, receiveCurrentSong, playSong, pauseSong, song, songs, user }) => {
     let display = null;
 
-    if (!songs){
+    if (user){
+        if(!currentSong){
+             display = <div className="play-button-user" onClick={() => receiveCurrentSong(song)}>
+                        <FontAwesomeIcon className="play-button-icon-user" icon={faPlay}></FontAwesomeIcon>
+                       </div>
+        } else if (currentSong){
+            display = <div className="play-button-user" onClick={() => pauseSong()}>
+                        <FontAwesomeIcon className="play-button-icon-user" icon={faPause}></FontAwesomeIcon>
+                      </div>
+        }
+    
+        if(currentSong && currentSong.id !== song.id){
+             display = <div className="play-button-user" onClick={() => receiveCurrentSong(song)}>
+                        <FontAwesomeIcon className="play-button-icon-user" icon={faPlay}></FontAwesomeIcon>
+                       </div>
+        } else if (currentSong && currentSong.id === song.id && !playing  ){
+             display = <div className="play-button-user" onClick={() => playSong()}>
+                        <FontAwesomeIcon className="play-button-icon-user" icon={faPlay}></FontAwesomeIcon>
+                       </div>
+        }
+    }
+
+    else if (!songs){
         if(!currentSong){
              display = <div className="play-button-div" onClick={() => receiveCurrentSong(song)}>
                         <FontAwesomeIcon className="play-button-icon" icon={faPlay}></FontAwesomeIcon>

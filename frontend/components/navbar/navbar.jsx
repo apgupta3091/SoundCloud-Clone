@@ -15,8 +15,8 @@ class NavBar extends React.Component {
                 <h1 className="nav-logo">SOUNDWAVE</h1>
                 <Link className="nav-link home" to='/discover'>Home</Link>
                 <Link className="nav-link" id="signin-link" to='/upload'>Upload</Link>
-                <Link className="nav-link" id='signup-link' to='/'>{this.props.currentUser.username}</Link>
-                <button className="nav-link nav-log-out" id='upload-link' onClick={this.props.logout}>Log Out</button>
+                <Link className="nav-link" id='signup-link' to={`/users/${this.props.currentUser.id}`} >{this.props.currentUser.username}</Link>
+                <Link to="/"><button className="nav-link nav-log-out" id='upload-link' onClick={this.props.logout}>Log Out</button></Link>
 
             </nav>
             ) : (

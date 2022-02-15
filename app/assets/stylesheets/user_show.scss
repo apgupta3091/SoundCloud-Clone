@@ -1,0 +1,282 @@
+.user-show-page-container {
+    width: 1200px;
+    background-color: white;
+    margin: auto;
+    font-family: 'Oxygen';
+    padding-bottom: 50px;
+}
+
+.content{
+    margin:5px
+}
+
+.user-banner {
+    display: flex;
+    background-color: rgb(243, 243, 243);
+    background-image: url("https://soundcrud-seeds.s3.amazonaws.com/user-header-images/user-default-header-banner.png");
+    background-size: cover;
+    padding: 30px;
+}
+
+.profile-pic-div {
+    position: relative;
+    width: fit-content;
+}
+
+.user-profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-left: 70px;
+}
+
+.update-prof-pic-btn {
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    bottom: -10%;
+    left: 40%;
+    right: 10%;
+
+    font-family: 'Oxygen';
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+.update-prof-pic-btn:hover {
+    cursor: pointer;
+}
+
+.user-banner-username {
+    width: max-content;
+    height: max-content;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    font-size: 24px;
+    margin: 30px 0px 0px 30px;
+    padding: 10px;
+    font-weight: 100;
+    margin-left: 40px;
+}
+
+.user-page-under-banner {
+    display: flex;
+}
+
+.nothing-here-msg {
+    margin: auto;
+    font-size: 18px;
+    color: rgb(198, 198, 198);
+}
+
+
+.user-songs-index-container{
+    width: 85%;
+    margin: auto;
+}
+
+.user-song-objs{
+    list-style:none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid rgb(233, 231, 231);
+    padding-top: 30px;
+    margin-top: 30px;
+
+    li {
+        margin-bottom: 30px;
+    }
+}
+
+.user-song-obj-container{
+    display: flex;
+}
+
+.user-track-obj-top{
+    margin-bottom: 20px;
+}
+
+
+.user-song-play-btn{
+    margin-left: 30px;
+}
+
+.play-button-user{
+    display: none;
+}
+
+.play-button-icon-user{
+    color: white;
+    height: 40px; 
+    width: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.song-span:hover .play-button-user{
+    display: block;
+    cursor: pointer;
+    padding:10px;
+    background:#f50;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top:40px;
+    left:40px;
+    
+
+}
+
+.song-span{
+    position: relative;
+}
+
+
+.user-track-labels {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-track-uploader {
+    font-size: 12px;
+    color: gray;
+    margin: 0px 0px 10px 0px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.user-track-title {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.user-track-created-time {
+    font-size: 12px;
+    color: gray;
+    margin: 10px 0px 0px 10px;
+}
+
+.user-song-cover-img {
+    width: 150px;
+    height: 150px;
+}
+
+.user-show-line-separator {
+    width: 1px;
+    border-right: 1px solid rgb(219, 219, 219);
+    margin: 20px 0px 20px 30px;
+}
+
+
+
+.edit-user-modal-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(236, 236, 236, 0.697);
+    z-index: 10;
+}
+
+
+.edit-user-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    height: 600px;
+    padding: 30px;
+    font-family: 'Oxygen';
+    margin:auto;
+}
+
+.edit-user-username {
+    padding: 0px 0px 10px 0px;
+    border-bottom: 1px solid rgb(217, 217, 217);
+    font-size: 18px;
+    font-weight: 300;
+    padding:10px;
+    background-color: rgb(75, 74, 74);
+    display:inline-block;
+    width:50px;
+    color:rgb(233, 232, 232);
+}
+
+.edit-user-preview-msg {
+    margin: auto;
+    color: gray;
+}
+
+.profile-pic-preview {
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+}
+
+.edit-user-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-user-form-container input[type='file'] {
+    display: none;
+}
+
+.upload-pic-btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    font-family: 'Oxygen';
+    font-size: 13px;
+    border: 1px solid rgb(253, 102, 27);
+    border-radius: 2px;
+}
+
+.edit-user-cancel-btn {
+    font-family: 'Oxygen';
+    font-size: 13px;
+    background-color: white;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.edit-user-btn {
+    font-family: 'Oxygen';
+    font-size: 13px;
+    background-color: rgb(253, 102, 27);
+    border: 1px solid rgb(253, 102, 27);
+    border-radius: 2px;
+    color: white;
+}
+
+.upload-pic-btn:hover, .edit-user-btn:hover, .edit-user-cancel-btn:hover {
+    cursor: pointer;
+}
+
+.hi{
+    font-size: 3px;
+    margin-bottom: 20px;
+}
+
+.top-content{
+    display: flex;
+    align-items: center;
+}
+
+.updated {
+    margin-left: 130px;
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #f50;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

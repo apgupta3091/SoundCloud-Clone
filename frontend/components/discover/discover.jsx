@@ -3,7 +3,6 @@ import Footer from '../footer/footer';
 import NavBarContainer from '../navbar/navbar_container';
 import { Link } from "react-router-dom";
 import PlayButtonContainer from '../play_button/play_button_container';
-import PlayContainer from "../play/play_container";
 
 
 class Discover extends React.Component {
@@ -14,10 +13,11 @@ class Discover extends React.Component {
 
     componentDidMount(){
         setTimeout(() => this.props.fetchSongs(), 2000);
+        setTimeout(() => this.props.fetchUsers(), 2000);
     };
 
     render(){
-        const { songs } =  this.props;
+        const { songs, users } =  this.props;
         let edmSongs = songs.filter(song => song.genre ==='edm')
         let hiphopSongs = songs.filter(song => song.genre ==='hip-hop')
         let popSongs = songs.filter(song => song.genre ==='pop')
@@ -34,29 +34,27 @@ class Discover extends React.Component {
             <div>
                 <NavBarContainer />
                 <h1>hello</h1>
-                <h1 className="discover-h1">My Songs</h1>
-                    <p className="discover-p">Every song you've dropped on SoundWave</p>
+                
+                <div>
+                    <h1 className="discover-h1">All Users</h1>
+                    <p className="discover-p">All current Users on SoundWave</p>
                      <ul className="songs-list discover-song-list">
                         {
-                            mySongs.length === 0?
-                            null:
-                            mySongs.map(song => (
+                            users.map(song => (
                                 song ?
                                 (<span key={song.id} className="song-span">
-                                    <Link className="song-links" to={`/songs/${song.id}`}>
+                                    <Link className="song-links" to={`/users/${song.id}`}>
                                         <li>
-                                            <img className="song-cover-photo" src={song.coverPhoto} ></img>
+                                            <img className="song-cover-photo" src={song.profilePic} ></img>
                                         </li>
-                                        <p className="song-title">{song.title}</p>
-                                        <p className="song-artist">{song.artist.username}</p>
+                                        <p className="song-title">{song.username}</p>
                                     </Link>
-                                    <PlayButtonContainer songs={songs} song={song} />
+                                    
 
                                 </span>): null
                             ))
                         }
                     </ul>
-                <div>
                     <h1 className="discover-h1">All Songs</h1>
                     <p className="discover-p">Every song available on SoundWave</p>
                      <ul className="songs-list discover-song-list">

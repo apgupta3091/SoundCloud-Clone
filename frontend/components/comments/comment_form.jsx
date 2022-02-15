@@ -24,12 +24,15 @@ class CommentForm extends React.Component {
         this.props.createComment(this.state)
             .then(this.clearForm())
     };
+    
+    
 
     render () {
 
         const { currentUser } = this.props;
 
         return (
+            
             <div className="comment-form-main" >
                 <div><img className="comment-form-user-profile-pic" src={currentUser.profilePic} /></div>
 

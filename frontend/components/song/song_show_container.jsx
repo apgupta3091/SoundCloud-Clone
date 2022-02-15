@@ -8,9 +8,8 @@ const mSTP = (state, ownProps) => ({
     song: state.entities.songs[ownProps.match.params.songId],
     songId: ownProps.match.params.songId,
     currentUser: state.entities.users[state.session.id],
-    currentUserProfilePic: state.entities.users[state.session.id].profilePic,
+    currentUserProfilePic: state.entities.users[state.session.id] ? state.entities.users[state.session.id].profilePic: null ,
     currentUserId: state.session.id,
-    currentUserProfilePic: state.entities.users[state.session.id].profilePic,
     currentSong: state.ui.play.currentSong
 
 });
