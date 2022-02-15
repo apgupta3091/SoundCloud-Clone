@@ -9,7 +9,6 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 -----------------------------------------------------------------------------
 
-
 ## TECHNOLOGIES, LIBRARIES, API'S:
 
 - Ruby
@@ -119,6 +118,28 @@ end
 
 
 ### Continous Play Bar
+
+<img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
+
+The Continuous Play bar was implemented with React. A few functionality's in the play bar include replaying a song, drag and drop to any point of 
+the song, updating input bar while the song plays, and the ability to play and pause the song.
+
+```
+const mSTP = state => ({
+    currentSong: state.ui.play.currentSong,
+    playing: state.ui.play.playing,
+});
+
+const mDTP = (dispatch) => ({
+    receiveCurrentSong: song => dispatch(receiveCurrentSong(song)),
+    playSong: () => dispatch(playSong()),
+    pauseSong: () => dispatch(pauseSong()),
+    removeSong: () => dispatch(removeSong()),
+});
+```
+
+
+### Comments
 
 <img width="719" alt="Screen Shot 2022-01-25 at 4 21 05 PM" src="https://user-images.githubusercontent.com/53449807/151061860-29c9913a-908c-4ef2-a0ea-f9903e5bce82.png">
 
