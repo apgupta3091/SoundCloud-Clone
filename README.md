@@ -9,6 +9,7 @@ is a clone of SoundCloud. A music streaming app which allows users to stream the
 
 -----------------------------------------------------------------------------
 
+
 ## TECHNOLOGIES, LIBRARIES, API'S:
 
 - Ruby
