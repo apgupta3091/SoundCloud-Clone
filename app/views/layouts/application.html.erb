@@ -7,6 +7,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta property="og:title" content="SoundWave" />
+     <meta property='og:image' content="<%= image_url('m.png') %>"/>
+     <meta property="og:description"
+       content="A pixel perfect clone of SoundCloud using Ruby on Rails, React, Redux, and AWS S3."
+     />
+     <meta property="og:url"
+       content="https://soundwave-aa.herokuapp.com/#/"
+     />
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript">
