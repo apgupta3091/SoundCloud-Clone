@@ -161,6 +161,3 @@ const mDTP = (dispatch) => ({
 ```
 -----------------------------------
 
-### Future Features
-- Comments
-- Profile Pages
